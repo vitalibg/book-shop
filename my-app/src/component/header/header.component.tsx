@@ -1,5 +1,5 @@
 import React from "react";
-import TitleComponent from "./title/title.component";
+import TitleComponent from "../common/title/title.component";
 import SearchComponent from "./search/search.component";
 import UserComponent from "./user/user.component";
 import style from "./header.module.css";

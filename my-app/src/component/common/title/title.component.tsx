@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./title.module.css";
-import TextComponent from "../../common/text.component";
+import TextComponent from "../text.component";
 
 interface TitleComponentProps {
   title: string;

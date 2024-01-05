@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;;
+}
+
+.arrow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 4%;
+    cursor: pointer;
+    color: rgb(128, 128, 128);
+    font-weight: bold;
+}
+
+.paginationContainer {
+    display: flex;
+    list-style: none;
+    width: 10%;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+.paginationItem {
+    cursor: pointer;
+}
