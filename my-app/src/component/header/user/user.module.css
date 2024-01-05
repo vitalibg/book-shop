@@ -1,0 +1,17 @@
+.container {
+    max-width: 150px;
+    min-width: 100px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: center;
+    text-align: center;
+}
+
+.menuItem {
+    vertical-align: center;
+    text-align: center;
+}

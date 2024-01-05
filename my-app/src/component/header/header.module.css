@@ -1,0 +1,17 @@
+.container {
+    background-color: #ffffff;
+    width: 70%;
+    padding: 20px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuItem {
+
+}
+
