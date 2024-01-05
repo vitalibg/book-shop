@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./title.module.css";
+import TextComponent from "../../common/text.component";
 
 interface TitleComponentProps {
   title: string;
@@ -8,7 +9,7 @@ interface TitleComponentProps {
 const TitleComponent = ({ title }: TitleComponentProps) => {
   return (
     <div className={style.container}>
-      <span className={style.content}>{title}</span>
+      <TextComponent text={title} />
     </div>
   );
 };

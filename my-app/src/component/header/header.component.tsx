@@ -6,19 +6,21 @@ import style from "./header.module.css";
 
 const HeaderComponent = () => {
   return (
-    <nav className={style.container}>
-      <ul className={style.content}>
-        <li className={style.menuItem}>
-          <TitleComponent title={"Bookstore"} />
-        </li>
-        <li>
-          <SearchComponent />
-        </li>
-        <li>
-          <UserComponent />
-        </li>
-      </ul>
-    </nav>
+    <header className={style.container}>
+      <nav>
+        <ul className={style.content}>
+          <li className={style.menuItem}>
+            <TitleComponent title={"Bookstore"} />
+          </li>
+          <li>
+            <SearchComponent />
+          </li>
+          <li>
+            <UserComponent />
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
 
-interface IconProps {
+interface IconComponentProps {
   icon: React.ReactNode;
 }
 
-const IconComponent = ({ icon }: IconProps) => {
+const IconComponent = ({ icon }: IconComponentProps) => {
   return <span style={{ color: "gray", cursor: "pointer"}}>{icon}</span>;
 };
 
