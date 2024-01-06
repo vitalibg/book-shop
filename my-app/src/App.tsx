@@ -1,17 +1,16 @@
 import React from "react";
 import "./App.css";
-import HeaderComponent from "./component/header/header.component";
-import FooterComponent from "./component/footer/footer.component";
-import SubscribeComponent from "./component/subscribe/subscribe.component";
-import PaginationComponent from "./component/pagination/pagination.component";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NewReleaseTemplateComponent from "./component/template/new-release-template.component";
 
 function App() {
   return (
     <div className="App">
-      <HeaderComponent />
-      <PaginationComponent />
-      <SubscribeComponent />
-      <FooterComponent />
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<NewReleaseTemplateComponent />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

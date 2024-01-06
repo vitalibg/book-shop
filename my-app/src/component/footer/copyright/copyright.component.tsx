@@ -3,8 +3,7 @@ import IconComponent from "../../common/icon.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
-import style from "./copyright.module.css"
-
+import style from "./copyright.module.css";
 
 const CopyrightComponent = () => {
   return (

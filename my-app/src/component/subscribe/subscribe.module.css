@@ -4,3 +4,10 @@
     width: 70%;
     margin-bottom: 30px;
 }
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Roboto Light", sans-serif;
+}
