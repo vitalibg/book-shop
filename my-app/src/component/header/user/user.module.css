@@ -14,4 +14,10 @@
 .menuItem {
     vertical-align: center;
     text-align: center;
+    color: white;
+    cursor: pointer;
+
+    :hover {
+        color: black;
+    }
 }

@@ -5,7 +5,7 @@ interface IconComponentProps {
 }
 
 const IconComponent = ({ icon }: IconComponentProps) => {
-  return <span style={{ color: "gray", cursor: "pointer"}}>{icon}</span>;
+  return <span>{icon}</span>;
 };
 
 export default IconComponent;
