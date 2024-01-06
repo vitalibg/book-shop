@@ -1,10 +1,20 @@
-.container {
-    background-color: #ffffff;
-    width: 70%;
+.header {
+    background: rgb(0,2,3);
+    background: linear-gradient(333deg, rgba(0,2,3,1) 10%, rgba(91,214,171,1) 50%, rgba(0,0,0,1) 90%);
     padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
-.content {
+.container {
+    max-width: 1170px;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,4 +26,5 @@
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Roboto Light", sans-serif;
+    color: white;
 }

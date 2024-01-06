@@ -6,20 +6,16 @@ import TextComponent from "../common/text.component";
 
 const HeaderComponent = () => {
   return (
-    <header className={style.container}>
-      <nav>
-        <ul className={style.content}>
-          <li className={style.title}>
+    <header className={style.header}>
+      <div className={style.container}>
+        <div className={style.wrap}>
+          <div className={style.title}>
             <TextComponent text={"Bookstore"} />
-          </li>
-          <li>
-            <SearchComponent />
-          </li>
-          <li>
-            <UserComponent />
-          </li>
-        </ul>
-      </nav>
+          </div>
+          <SearchComponent />
+          <UserComponent />
+        </div>
+      </div>
     </header>
   );
 };
