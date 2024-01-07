@@ -23,7 +23,7 @@ const BookContainerComponent = ({ image, title, description, price }: BookContai
       <BookComponent image={image} title={title} description={description} price={price} />
       <BookComponent image={image} title={title} description={description} price={price} />
       <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />`
+      <BookComponent image={image} title={title} description={description} price={price} />
     </div>
   );
 };

@@ -15,7 +15,7 @@ interface BookComponentProps {
 const BookComponent = ({ image, title, description, price }: BookComponentProps) => {
   return (
     <div className={style.container}>
-      <BookPictureComponent image={image} title={title} />
+      <BookPictureComponent image={image} />
       <BookTitleComponent title={title} />
       <BookDescriptionComponent description={description} />
       <BookPriceRateComponent price={price} />

@@ -4,13 +4,12 @@ import style from "./book-picture.module.css";
 
 interface BookPictureComponentProps {
   image: string;
-  title: string;
 }
 
-const BookPictureComponent = ({ image, title }: BookPictureComponentProps) => {
+const BookPictureComponent = ({ image }: BookPictureComponentProps) => {
   return (
     <div className={style.img}>
-      <ImageComponent image={image} title={title} />
+      <ImageComponent image={image} />
     </div>
   );
 };

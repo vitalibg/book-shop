@@ -5,7 +5,6 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import style from "./price-rate.module.css";
 
-
 interface PriceRateComponentProps {
   price: string;
 }
@@ -16,23 +15,13 @@ const BookPriceRateComponent = ({ price }: PriceRateComponentProps) => {
       <div>
         <TextComponent text={price} />
       </div>
-      <ul>
-        <li>
-          <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-        </li>
-        <li>
-          <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-        </li>
-        <li>
-          <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-        </li>
-        <li>
-          <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-        </li>
-        <li>
-          <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-        </li>
-      </ul>
+      <div>
+        <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+        <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+        <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+        <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+        <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+      </div>
     </div>
   );
 };
