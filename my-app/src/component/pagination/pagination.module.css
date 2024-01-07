@@ -1,16 +1,15 @@
 .container {
     display: flex;
-    width: 70%;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;;
+    margin-bottom: 50px;
 }
 
 .arrow {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 4%;
+    width: 5%;
     cursor: pointer;
     color: rgb(128, 128, 128);
     font-weight: bold;
