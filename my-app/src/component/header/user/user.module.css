@@ -3,19 +3,18 @@
     min-width: 100px;
 }
 
-.content {
+.wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     vertical-align: center;
     text-align: center;
-}
-
-.menuItem {
-    vertical-align: center;
-    text-align: center;
     color: white;
     cursor: pointer;
+
+    & a {
+        color: white;
+    }
 
     :hover {
         color: black;

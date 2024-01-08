@@ -18,16 +18,16 @@
     margin: 0 auto;
     padding: 15px;
     border: 1px solid #807d7d;
-}
 
-.formContainer button {
-    font-size: 18px;
-    padding: 10px;
-    cursor: pointer;
-    background: rgb(0,2,3);
-    background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
-    font-weight: bold;
-    border: 0;
+    & button {
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+        background: rgb(0, 2, 3);
+        background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
+        font-weight: bold;
+        border: 0;
+    }
 }
 
 .inputField {
@@ -36,17 +36,17 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-}
 
-.inputField input {
-    width: 80%;
-    outline: none;
-    border: 0;
-}
+    & label {
+        font-weight: bold;
+        font-size: 18px;
+    }
 
-.inputField label {
-    font-weight: bold;
-    font-size: 18px;
+    & input {
+        width: 80%;
+        outline: none;
+        border: 0;
+    }
 }
 
 .userSupport {
@@ -54,15 +54,15 @@
     flex-direction: column;
     font-size: 14px;
     color: black;
-}
 
-.userSupport a:link {
-    color: black;
-}
+    & a {
+        color: #3f795a;
+        font-size: 14px;
+    }
 
-.userSupport a {
-    color: #3f795a;
-    font-size: 14px;
+    & a:link {
+        color: black;
+    }
 }
 
 .signUp {
