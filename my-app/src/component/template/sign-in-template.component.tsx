@@ -1,16 +1,16 @@
 import React from "react";
 import HeaderComponent from "../header/header.component";
 import FooterComponent from "../footer/footer.component";
-import NewReleasesComponent from "../page/new-releases/new-releases.component";
+import SignInComponent from "../page/sign-in/sign-in.component";
 
-const NewReleaseTemplateComponent = () => {
+const SignInTemplateComponent = () => {
   return (
     <>
       <HeaderComponent />
-      <NewReleasesComponent />
+      <SignInComponent />
       <FooterComponent />
     </>
   );
 };
 
-export default NewReleaseTemplateComponent;
+export default SignInTemplateComponent;

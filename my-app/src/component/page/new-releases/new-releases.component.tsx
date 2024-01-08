@@ -3,10 +3,10 @@ import TextComponent from "../../common/text.component";
 import BookContainerComponent from "../../book/book-container/book-container.component";
 import PaginationComponent from "../../pagination/pagination.component";
 import SubscribeComponent from "../../subscribe/subscribe.component";
-import style from "./new-releases-page.module.css";
+import style from "./new-releases.module.css";
 import image from "./../../../assets/opened-book-06-adding-another-outline-850x638.png"
 
-const NewReleasesPageComponent = () => {
+const NewReleasesComponent = () => {
   return (
     <div className={style.container}>
       <div className={style.title}>
@@ -25,4 +25,4 @@ const NewReleasesPageComponent = () => {
   );
 };
 
-export default NewReleasesPageComponent;
+export default NewReleasesComponent;
