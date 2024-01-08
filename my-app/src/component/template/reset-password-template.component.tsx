@@ -3,7 +3,7 @@ import HeaderComponent from "../header/header.component";
 import FooterComponent from "../footer/footer.component";
 import ResetPasswordComponent from "../page/reset-password/reset-password.component";
 
-const SuccessSignInTemplateComponent = () => {
+const ResetPasswordTemplateComponent = () => {
   return (
     <>
       <HeaderComponent />
@@ -13,4 +13,4 @@ const SuccessSignInTemplateComponent = () => {
   );
 };
 
-export default SuccessSignInTemplateComponent;
+export default ResetPasswordTemplateComponent;
