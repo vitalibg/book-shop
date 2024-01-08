@@ -1,5 +1,6 @@
 import React from "react";
-import style from "./sign-in.module.css";
+import signInStyle from "./sign-in.module.css";
+import style from "../../../style/all.module.css";
 import ButtonComponent from "../../common/button.component";
 import TextComponent from "../../common/text.component";
 import InputFieldComponent from "../../common/input-field.component";
@@ -27,9 +28,9 @@ const SignInComponent = () => {
           <InputFieldComponent label={"Password:"} type={"text"} placeholder={"Your password"} />
         </div>
 
-        <div className={style.userSupport}>
+        <div className={signInStyle.userSupport}>
           <Link to={"/reset-password"}>Forgot password</Link>
-          <div className={style.signUp}>
+          <div className={signInStyle.signUp}>
             {"Don`t have an account? "} <Link to={"/sign-up"}>Sign Up</Link>
           </div>
         </div>

@@ -3,8 +3,9 @@ import TextComponent from "../../common/text.component";
 import ParagraphComponent from "../../common/paragraph.component";
 import InputFieldComponent from "../../common/input-field.component";
 import ButtonComponent from "../../common/button.component";
-import style from "./reset-password.module.css";
+import style2 from "./reset-password.module.css";
 import { useNavigate } from "react-router-dom";
+import style from "../../../style/all.module.css"
 
 const ResetPasswordComponent = () => {
   const navigate = useNavigate();

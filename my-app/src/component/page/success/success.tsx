@@ -1,6 +1,6 @@
 import React from "react";
 import TextComponent from "../../common/text.component";
-import style from "./success.module.css";
+import style from "../../../style/all.module.css";
 import ParagraphComponent from "../../common/paragraph.component";
 import ButtonComponent from "../../common/button.component";
 import { useNavigate } from "react-router-dom";

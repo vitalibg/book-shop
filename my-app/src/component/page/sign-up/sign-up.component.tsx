@@ -3,7 +3,8 @@ import TextComponent from "../../common/text.component";
 import InputFieldComponent from "../../common/input-field.component";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonComponent from "../../common/button.component";
-import style from "./sign-up.module.css";
+import style from "../../../style/all.module.css";
+import signUpStyle from "./sign-up.module.css";
 
 const SignUpComponent = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const SignUpComponent = () => {
           <InputFieldComponent label={"Confirm password:"} type={"text"} placeholder={"Password"} />
         </div>
 
-        <div className={style.signUp}>
+        <div className={signUpStyle.signUp}>
           {"Already have an account? "} <Link to={"/sign-in"}>Sign In</Link>
         </div>
 

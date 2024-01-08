@@ -3,7 +3,7 @@ import TextComponent from "../../common/text.component";
 import BookContainerComponent from "../../book/book-container/book-container.component";
 import PaginationComponent from "../../pagination/pagination.component";
 import SubscribeComponent from "../../subscribe/subscribe.component";
-import style from "./new-releases.module.css";
+import style from "../../../style/all.module.css";
 import image from "./../../../assets/opened-book-06-adding-another-outline-850x638.png"
 
 const NewReleasesComponent = () => {
