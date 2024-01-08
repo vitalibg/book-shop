@@ -10,6 +10,7 @@ import BookSearchComponent from "./component/page/book-search/book-search.compon
 import BookViewComponent from "./component/page/book-view/book-view.component";
 import SuccessSignInTemplateComponent from "./component/template/success-sign-in-template.component";
 import SuccessSignUpTemplateComponent from "./component/template/success-sign-up-template.component";
+import ResetPasswordTemplateComponent from "./component/template/reset-password-template.component";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
           <Route path={"/sign-in"} element={<SignInTemplateComponent />} />
           <Route path={"/sign-in/success"} element={<SuccessSignInTemplateComponent />} />
+          <Route path={"/reset-password"} element={<ResetPasswordTemplateComponent />} />
 
           <Route path={"/sign-up"} element={<SignUpTemplateComponent />} />
           <Route path={"/sign-up/success"} element={<SuccessSignUpTemplateComponent />} />

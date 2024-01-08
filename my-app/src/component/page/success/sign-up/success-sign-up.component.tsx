@@ -25,7 +25,6 @@ const SuccessSignUpComponent = () => {
               "Cubilia dui felis omittantur deseruisse definiebas consul interesset urbanitas dapibus cubilia dui felis omittantur deseruisse definiebas consul interesset urbanitas dapibus"
             }
           />
-
           <ButtonComponent type={"button"} content={"Sign In"} onClick={handlePressButton} />
         </div>
       </div>
