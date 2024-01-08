@@ -2,11 +2,7 @@ import React from "react";
 import TextComponent from "../../common/text.component";
 
 const RightsComponent = () => {
-  return (
-    <div>
-      <TextComponent text={"All rights reserved"} />
-    </div>
-  );
+  return <TextComponent text={"All rights reserved"} />;
 };
 
 export default RightsComponent;

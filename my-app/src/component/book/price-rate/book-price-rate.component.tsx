@@ -12,9 +12,7 @@ interface PriceRateComponentProps {
 const BookPriceRateComponent = ({ price }: PriceRateComponentProps) => {
   return (
     <div className={style.container}>
-      <div>
-        <TextComponent text={price} />
-      </div>
+      <TextComponent text={price} />
       <div>
         <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
         <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />

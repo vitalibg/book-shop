@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./style/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BookSearchPageComponent from "./component/page/book-search/book-search-page.component";
 import BookViewPageComponent from "./component/page/book-view/book-view-page.component";

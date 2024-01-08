@@ -1,9 +1,8 @@
 import React from "react";
 import BookPictureComponent from "./picture/book-picture.component";
-import BookTitleComponent from "./title/book-title.component";
-import BookDescriptionComponent from "./description/book-description.component";
 import BookPriceRateComponent from "./price-rate/book-price-rate.component";
 import style from "./book.module.css";
+import TextComponent from "../common/text.component";
 
 interface BookComponentProps {
   image: string;
@@ -16,8 +15,12 @@ const BookComponent = ({ image, title, description, price }: BookComponentProps)
   return (
     <div className={style.container}>
       <BookPictureComponent image={image} />
-      <BookTitleComponent title={title} />
-      <BookDescriptionComponent description={description} />
+      <div className={style.title}>
+        <TextComponent text={title} />
+      </div>
+      <div className={style.description}>
+        <TextComponent text={description} />
+      </div>
       <BookPriceRateComponent price={price} />
     </div>
   );

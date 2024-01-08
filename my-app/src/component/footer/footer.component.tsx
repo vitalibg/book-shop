@@ -8,12 +8,8 @@ const FooterComponent = () => {
     <footer className={style.footer}>
       <div className={style.container}>
         <div className={style.wrap}>
-          <div>
-            <CopyrightComponent />
-          </div>
-          <div >
-            <RightsComponent />
-          </div>
+          <CopyrightComponent />
+          <RightsComponent />
         </div>
       </div>
     </footer>

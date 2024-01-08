@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../sign-in/sign-in.module.css";
+import style from "../../../style/all.module.css";
 import TextComponent from "../../common/text.component";
 import HeaderComponent from "../../header/header.component";
 import FooterComponent from "../../footer/footer.component";
