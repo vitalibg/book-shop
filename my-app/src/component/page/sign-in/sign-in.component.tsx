@@ -3,9 +3,15 @@ import style from "./sign-in.module.css";
 import ButtonComponent from "../../common/button.component";
 import TextComponent from "../../common/text.component";
 import InputFieldComponent from "../../common/input-field.component";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignInComponent = () => {
+  const navigate = useNavigate();
+
+  const handleSignInButton = () => {
+    navigate("/sign-in/success");
+  };
+
   return (
     <div className={style.container}>
       <div className={style.title}>
@@ -28,7 +34,7 @@ const SignInComponent = () => {
           </div>
         </div>
 
-        <ButtonComponent type={"button"} content={"Sign In"} />
+        <ButtonComponent type={"button"} content={"Sign In"} onClick={handleSignInButton} />
       </div>
     </div>
   );

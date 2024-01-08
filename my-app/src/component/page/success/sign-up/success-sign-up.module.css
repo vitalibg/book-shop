@@ -1,0 +1,35 @@
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.title {
+    margin: 50px 0 150px;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #807d7d;
+
+    & p {
+        margin-bottom: 30px;
+    }
+
+    & button {
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+        background: rgb(0, 2, 3);
+        background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
+        font-weight: bold;
+        border: 0;
+    }
+}
