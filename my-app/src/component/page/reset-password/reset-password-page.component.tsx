@@ -3,11 +3,12 @@ import TextComponent from "../../common/text.component";
 import ParagraphComponent from "../../common/paragraph.component";
 import InputFieldComponent from "../../common/input-field.component";
 import ButtonComponent from "../../common/button.component";
-import style2 from "./reset-password.module.css";
 import { useNavigate } from "react-router-dom";
-import style from "../../../style/all.module.css"
+import style from "../../../style/all.module.css";
+import HeaderComponent from "../../header/header.component";
+import FooterComponent from "../../footer/footer.component";
 
-const ResetPasswordComponent = () => {
+const ResetPasswordPageComponent = () => {
   const navigate = useNavigate();
 
   const handleSignInButton = () => {
@@ -16,6 +17,7 @@ const ResetPasswordComponent = () => {
 
   return (
     <>
+      <HeaderComponent />
       <div className={style.container}>
         <div className={style.title}>
           <TextComponent text={"Reset password"} />
@@ -32,8 +34,9 @@ const ResetPasswordComponent = () => {
           <ButtonComponent type={"submit"} content={"Submit"} onClick={handleSignInButton} />
         </div>
       </div>
+      <FooterComponent />
     </>
   );
 };
 
-export default ResetPasswordComponent;
+export default ResetPasswordPageComponent;

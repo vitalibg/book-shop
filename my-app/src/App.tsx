@@ -1,37 +1,37 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NewReleaseTemplateComponent from "./component/template/new-release-template.component";
-import SignInTemplateComponent from "./component/template/sign-in-template.component";
-import SignUpTemplateComponent from "./component/template/sign-up-template.component";
-import CartTemplateComponent from "./component/template/cart-template.component";
-import BookmarksTemplateComponent from "./component/template/bookmarks-template.component";
-import BookSearchComponent from "./component/page/book-search/book-search.component";
-import BookViewComponent from "./component/page/book-view/book-view.component";
+import BookSearchPageComponent from "./component/page/book-search/book-search-page.component";
+import BookViewPageComponent from "./component/page/book-view/book-view-page.component";
 import SuccessSignInTemplateComponent from "./component/template/success-sign-in-template.component";
 import SuccessSignUpTemplateComponent from "./component/template/success-sign-up-template.component";
-import ResetPasswordTemplateComponent from "./component/template/reset-password-template.component";
 import SuccessResetPasswordTemplateComponent from "./component/template/success-reset-password-template.component";
+import NewReleasesPageComponent from "./component/page/new-releases/new-releases-page.component";
+import SignInPageComponent from "./component/page/sign-in/sign-in-page.component";
+import ResetPasswordPageComponent from "./component/page/reset-password/reset-password-page.component";
+import SignUpPageComponent from "./component/page/sign-up/sign-up-page.component";
+import CartPageComponent from "./component/page/cart/cartPageComponent";
+import BookmarkPageComponent from "./component/page/bookmark/bookmarkPageComponent";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path={"/"} element={<NewReleaseTemplateComponent />} />
+          <Route path={"/"} element={<NewReleasesPageComponent />} />
 
-          <Route path={"/sign-in"} element={<SignInTemplateComponent />} />
+          <Route path={"/sign-in"} element={<SignInPageComponent />} />
           <Route path={"/sign-in/success"} element={<SuccessSignInTemplateComponent />} />
-          <Route path={"/reset-password"} element={<ResetPasswordTemplateComponent />} />
+          <Route path={"/reset-password"} element={<ResetPasswordPageComponent />} />
           <Route path={"/reset-password/success"} element={<SuccessResetPasswordTemplateComponent />} />
 
-          <Route path={"/sign-up"} element={<SignUpTemplateComponent />} />
+          <Route path={"/sign-up"} element={<SignUpPageComponent />} />
           <Route path={"/sign-up/success"} element={<SuccessSignUpTemplateComponent />} />
 
-          <Route path={"/cart"} element={<CartTemplateComponent />} />
-          <Route path={"/bookmarks"} element={<BookmarksTemplateComponent />} />
-          <Route path={"/book-search/:bookId"} element={<BookSearchComponent />} />
-          <Route path={"/book-view/:bookId"} element={<BookViewComponent />} />
+          <Route path={"/cart"} element={<CartPageComponent />} />
+          <Route path={"/bookmarks"} element={<BookmarkPageComponent />} />
+          <Route path={"/book-search/:bookId"} element={<BookSearchPageComponent />} />
+          <Route path={"/book-view/:bookId"} element={<BookViewPageComponent />} />
         </Routes>
       </BrowserRouter>
     </div>
