@@ -48,7 +48,7 @@ const PaginationComponent = () => {
       </div>
 
       <div className={style.container}>
-        <div onClick={prePage} className={style.arrow}>
+        <div onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
           <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
           <TextComponent text={"Prev"} />
         </div>
@@ -63,7 +63,7 @@ const PaginationComponent = () => {
           ))}
         </ul>
 
-        <div onClick={nextPage} className={style.arrow}>
+        <div onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
           <TextComponent text={"Next"} />
           <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
         </div>

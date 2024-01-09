@@ -57,7 +57,14 @@
     }
 }
 
-/*.active {*/
-/*    color: red;*/
-/*    background-color: lightskyblue;*/
-/*}*/
+.lock {
+    background-color: #12421b;
+    pointer-events: none;
+    padding: 15px 10px;
+    font-size: 18px;
+    color: white;
+
+    & span {
+        margin: 0 10px;
+    }
+}
