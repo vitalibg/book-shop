@@ -1,29 +1,18 @@
 import React from "react";
 import style from "./book-container.module.css";
 import BookComponent from "../book.component";
+import { IBook } from "../../../util/schema/new";
 
 interface BookContainerComponentProps {
-  image: string;
-  title: string;
-  description: string;
-  price: string;
+  books: IBook[];
 }
 
-const BookContainerComponent = ({ image, title, description, price }: BookContainerComponentProps) => {
+const BookContainerComponent = ({ books }: BookContainerComponentProps) => {
   return (
     <div className={style.container}>
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
-      <BookComponent image={image} title={title} description={description} price={price} />
+      {books.map((book,i) => (
+        <BookComponent key={i} image={book.image} title={book.title} description={book.subtitle} price={book.price} />
+      ))}
     </div>
   );
 };

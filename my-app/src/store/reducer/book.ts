@@ -1,13 +1,18 @@
-import { ActionType, SignInStateType } from "../type";
+import { ActionType } from "../type";
+import { IBook } from "../../util/schema/new";
 
-const initialValue: SignInStateType = {
-  isSignIn: false
+export interface IState {
+  books: IBook[];
+}
+
+const initialState: IState = {
+  books: []
 };
 
-export const bookReducer = (state: SignInStateType = initialValue, action: ActionType) => {
+export const bookReducer = (state: IState = initialState, action: ActionType) => {
   switch (action.type) {
-    case "SIGN_IN":
-      return { ...state, isSignIn: true };
+    case "SHOW_BOOKS":
+      return { ...state, books: action.payload };
     default:
       return state;
   }
