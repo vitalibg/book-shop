@@ -9,20 +9,55 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 5%;
     cursor: pointer;
-    color: rgb(128, 128, 128);
+    color: black;
     font-weight: bold;
+    background-color: #5DB486FF;
+    padding: 15px 10px;
+    font-size: 18px;
+
+    & span {
+        margin: 0 10px;
+    }
 }
 
 .paginationContainer {
     display: flex;
     list-style: none;
-    width: 10%;
+    width: 30%;
     justify-content: space-between;
     padding-left: 0;
+
+    :hover {
+        color: white;
+        background-color: #5DB486FF;
+    }
 }
 
 .paginationItem {
     cursor: pointer;
+    background-color: #c8efd8;
+    padding: 15px;
+    font-size: 18px;
+    color: black;
+
+    & .active {
+        color: red;
+        background-color: lightskyblue;
+    }
 }
+
+.bookContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 50px;
+
+    & a {
+        color: black;
+    }
+}
+
+/*.active {*/
+/*    color: red;*/
+/*    background-color: lightskyblue;*/
+/*}*/
