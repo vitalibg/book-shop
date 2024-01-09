@@ -22,9 +22,7 @@ const NewReleasesPageComponent = () => {
         <div className={style.title}>
           <TextComponent text={"New releases book"} />
         </div>
-
         <PaginationComponent />
-
         <SubscribeComponent />
       </div>
       <FooterComponent />
