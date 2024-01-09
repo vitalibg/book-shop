@@ -31,7 +31,7 @@ function App() {
           <Route path={"/cart"} element={<CartPageComponent />} />
           <Route path={"/bookmarks"} element={<BookmarkPageComponent />} />
           <Route path={"/book-search/:bookId"} element={<BookSearchPageComponent />} />
-          <Route path={"/book-view/:bookId"} element={<BookViewPageComponent />} />
+          <Route path={"/books/:bookId"} element={<BookViewPageComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,9 +11,9 @@ interface BookContainerComponentProps {
 const BookContainerComponent = ({ books }: BookContainerComponentProps) => {
   return (
     <div className={style.container}>
-      {books.map((book, i) => (
-        <Link to={`/book-view/${i}`}>
-          <BookComponent key={i} image={book.image} title={book.title} description={book.subtitle} price={book.price} />
+      {books.map(($book, i) => (
+        <Link to={`/books/${$book.isbn13}`}>
+          <BookComponent key={i} book={$book} />
         </Link>
       ))}
     </div>
