@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subTitle {
+    margin: 20px 0 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.control {
+    width: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.arrow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+
+    & span {
+        margin: 0 10px;
+    }
+}
+
+.bookContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 30px;
+
+    & a {
+        color: black;
+    }
+}

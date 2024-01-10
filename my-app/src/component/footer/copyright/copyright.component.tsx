@@ -9,7 +9,7 @@ const CopyrightComponent = () => {
   return (
     <div className={style.container}>
       <IconComponent icon={<FontAwesomeIcon icon={faCopyright} />} />
-      <TextComponent text={"Bookstore"} />
+      <TextComponent text={" 2024 Bookstore"} />
     </div>
   );
 };

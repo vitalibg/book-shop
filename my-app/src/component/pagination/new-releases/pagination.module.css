@@ -24,7 +24,7 @@
 .paginationContainer {
     display: flex;
     list-style: none;
-    width: 30%;
+    width: 20%;
     justify-content: space-between;
     padding-left: 0;
 
@@ -36,7 +36,7 @@
 
 .paginationItem {
     cursor: pointer;
-    background-color: #c8efd8;
+    background-color: #a3c9b3;
     padding: 15px;
     font-size: 18px;
     color: black;

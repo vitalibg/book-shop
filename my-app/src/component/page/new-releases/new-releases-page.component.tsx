@@ -6,7 +6,7 @@ import HeaderComponent from "../../header/header.component";
 import FooterComponent from "../../footer/footer.component";
 import { useAppDispatch } from "../../../store/hooks";
 import { fetchNewBooks } from "../../../store/action";
-import PaginationComponent from "../../pagination/pagination.component";
+import PaginationComponent from "../../pagination/new-releases/pagination.component";
 
 const NewReleasesPageComponent = () => {
   const dispatch = useAppDispatch();

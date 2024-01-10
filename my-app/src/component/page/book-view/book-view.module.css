@@ -1,0 +1,61 @@
+/*.bookWrap {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*}*/
+
+/*.bookInfo {*/
+
+/*}*/
+
+/*.authors {*/
+
+/*}*/
+
+/*.publisher {*/
+
+/*}*/
+
+/*.language {*/
+
+/*}*/
+
+/*.format {*/
+
+/*}*/
+
+
+
+
+/*.navigation {*/
+/*    @media (max-width: $mobile) {*/
+/*        display: none;*/
+/*    }*/
+
+/*    &-list {*/
+/*        display: flex;*/
+/*        justify-content: space-between;*/
+/*        &__item {*/
+/*            border-bottom: 3px solid transparent;*/
+/*            width: 134px;*/
+/*            text-align: center;*/
+/*            &:hover {*/
+/*                border-bottom: 3px solid $color-BABBC5;*/
+/*            }*/
+/*            &:active {*/
+/*                border-bottom: 3px solid $color-E71414;*/
+/*            }*/
+
+/*            @media (max-width: $tablet) {*/
+/*                width: 112px;*/
+/*            }*/
+/*            a {*/
+/*                @include font($font-weight-700, $font-size-13px);*/
+/*                @include item-link($color-FFFFFF);*/
+/*                padding: 36px 0;*/
+/*                &:active {*/
+/*                    color: $color-E71414;*/
+/*                }*/
+/*            }*/
+/*        }*/
+/*    }*/
+/*}*/
