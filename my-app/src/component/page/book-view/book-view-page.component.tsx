@@ -25,7 +25,6 @@ const BookViewPageComponent = () => {
 
   useEffect(() => {
     dispatch(fetchBook(urlParam.bookId!));
-    console.log("book",book);
   }, []);
 
   return (
