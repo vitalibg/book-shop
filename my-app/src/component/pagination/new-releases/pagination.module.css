@@ -10,11 +10,9 @@
     justify-content: space-between;
     flex-direction: row;
     cursor: pointer;
-    color: black;
     font-weight: bold;
-    background-color: #5DB486FF;
     padding: 7px 3px;
-    font-size: 14px;
+    font-size: 18px;
 
     & span {
         margin: 0 5px;
@@ -24,38 +22,32 @@
 .paginationContainer {
     display: flex;
     list-style: none;
-    width: 7%;
+    width: 15%;
     justify-content: space-between;
     padding-left: 0;
 
     :hover {
         color: white;
-        background-color: #5DB486FF;
+        background-color: #2e8054;
     }
 }
 
 .paginationItem {
     cursor: pointer;
-    background-color: #a3c9b3;
+    background-color: #000000;
     padding: 7px;
     font-size: 14px;
-    color: black;
-
-    /*& .active {*/
-    /*    color: red;*/
-    /*    background-color: lightskyblue;*/
-    /*}*/
+    color: white;
 }
 
 .active {
-    color: red;
-    background-color: lightskyblue;
+    color: white;
+    background-color: #31745d;
 }
 
 .bookContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /*margin-bottom: 30px;*/
 
     & a {
         color: black;
@@ -63,11 +55,9 @@
 }
 
 .lock {
-    background-color: #12421b;
     pointer-events: none;
-    padding: 7px 3px;
-    font-size: 14px;
-    color: white;
+    padding: 5px 3px;
+    font-size: 18px;
 
     & span {
         margin: 0 5px;
