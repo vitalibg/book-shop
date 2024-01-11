@@ -15,6 +15,8 @@ import IconComponent from "../../common/icon.component";
 import LabelComponent from "../../common/label.component";
 import TabComponent from "./tab/tab.component";
 import RatingComponent from "./rating/rating.component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const BookViewPageComponent = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +25,7 @@ const BookViewPageComponent = () => {
 
   useEffect(() => {
     dispatch(fetchBook(urlParam.bookId!));
+    console.log("book",book);
   }, []);
 
   return (
@@ -35,6 +38,9 @@ const BookViewPageComponent = () => {
 
         <div className={bookViewStyle.bookInfo}>
           <div className={bookViewStyle.image}>
+            <div className={bookViewStyle.icon}>
+              <IconComponent icon={<FontAwesomeIcon icon={faHeart} />} />
+            </div>
             <ImageComponent image={book?.image} />
           </div>
 
@@ -77,6 +83,7 @@ const BookViewPageComponent = () => {
         <TabComponent description={book?.desc} authors={book?.authors} />
 
         <SubscribeComponent />
+
         <PaginationSingleBookComponent />
       </div>
       <FooterComponent />

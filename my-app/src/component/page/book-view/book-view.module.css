@@ -11,6 +11,22 @@
 
 .image, .infoWrap {
     padding: 0 50px;
+    position: relative;
+}
+
+.icon {
+    padding: 4px 9px ;
+    background-color: #252121;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 85%;
+
+    :hover{
+        color: #1f672c;
+    }
 }
 
 .wrap {

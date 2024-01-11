@@ -12,7 +12,7 @@ const BOOK_COUNT_PER_PAGE = 3;
 
 const PaginationSingleBookComponent = () => {
   const bookList = useAppSelector((state) => state.bookList?.books);
-  const [currentPage, setCurrentPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = BOOK_COUNT_PER_PAGE;
 
   const lastIndex = currentPage * recordsPerPage;
@@ -54,8 +54,8 @@ const PaginationSingleBookComponent = () => {
 
       <div className={paginationSinglePageStyle.bookContainer}>
         {records.map(($book, i) => (
-          <Link to={`/books/${$book.isbn13}`}>
-            <BookComponent key={i} book={$book} />
+          <Link key={i} to={`/books/${$book.isbn13}`}>
+            <BookComponent book={$book} />
           </Link>
         ))}
       </div>

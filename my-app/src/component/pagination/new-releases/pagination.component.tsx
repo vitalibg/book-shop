@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
 
-const BOOK_COUNT_PER_PAGE = 8;
+const BOOK_COUNT_PER_PAGE = 4;
 
 const PaginationComponent = () => {
   const bookList = useAppSelector((state) => state.bookList?.books);
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = BOOK_COUNT_PER_PAGE
+  const recordsPerPage = BOOK_COUNT_PER_PAGE;
 
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
@@ -29,8 +29,8 @@ const PaginationComponent = () => {
     }
   };
 
-  const changeCPage = (id: any) => {
-    setCurrentPage(currentPage - 1);
+  const changePage = (page: number) => {
+    setCurrentPage(page);
   };
 
   const nextPage = () => {
@@ -43,8 +43,8 @@ const PaginationComponent = () => {
     <>
       <div className={style.bookContainer}>
         {records.map(($book, i) => (
-          <Link to={`/books/${$book.isbn13}`}>
-            <BookComponent key={i} book={$book} />
+          <Link key={i} to={`/books/${$book.isbn13}`}>
+            <BookComponent book={$book} />
           </Link>
         ))}
       </div>
@@ -57,8 +57,12 @@ const PaginationComponent = () => {
 
         <ul className={style.paginationContainer}>
           {numbers.map((n, i) => (
-            <li className={`paginationItem ${currentPage === n ? "active" : ""}`} key={i}>
-              <a href={"#"} className={style.paginationItem} onClick={changeCPage}>
+            <li key={i}>
+              <a
+                href={"#"}
+                className={[style.paginationItem, currentPage === n ? style.active : ""].join(" ")}
+                onClick={() => changePage(n)}
+              >
                 {n}
               </a>
             </li>
