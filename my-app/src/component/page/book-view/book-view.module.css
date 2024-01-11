@@ -1,29 +1,77 @@
-/*.bookWrap {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(2, 1fr);*/
-/*}*/
+.bookInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 40px;
 
-/*.bookInfo {*/
+    & img {
+        display: block;
+        margin: auto auto;
+    }
+}
 
-/*}*/
+.image, .infoWrap {
+    padding: 0 50px;
+}
 
-/*.authors {*/
+.wrap {
+    border-top: 1px solid rgb(187, 181, 181);
+    padding-top: 30px;
+}
 
-/*}*/
+.priceRate {
+    font-size: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
 
-/*.publisher {*/
+.rate {
+    font-size: 15px;
 
-/*}*/
+    & span {
+        margin: 0 3px;
+        cursor: pointer;
+    }
+}
 
-/*.language {*/
+.authors, .publisher, .language {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
 
-/*}*/
+    & label {
+        color: #807d7d;
+        width: 20%;
+    }
+}
 
-/*.format {*/
+.details {
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
 
-/*}*/
+.control {
+    display: flex;
+    flex-direction: column;
 
+    & button {
+        padding: 10px 0;
+        font-size: 18px;
+        text-transform: uppercase;
+        border: 0;
+        cursor: pointer;
+        background: rgb(0, 2, 3);
+        background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
+        font-weight: bold;
+    }
 
+    & span {
+        text-align: center;
+    }
+}
 
 
 /*.navigation {*/

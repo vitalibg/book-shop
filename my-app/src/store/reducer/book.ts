@@ -1,18 +1,29 @@
-import { BookActionType } from "../type";
-import { IBook } from "../../util/schema/new";
+import { IBookByISBNAction, IBookByISBNState } from "../type";
 
-export interface IState {
-  books: IBook[];
-}
-
-const initialState: IState = {
-  books: []
+const initialState: IBookByISBNState = {
+  book: {
+    error: "",
+    title: "",
+    subtitle: "",
+    authors: "",
+    publisher: "",
+    language: "",
+    isbn10: "",
+    isbn13: "",
+    pages: "",
+    year: "",
+    rating: "",
+    desc: "",
+    price: "",
+    image: "",
+    url: ""
+  }
 };
 
-export const bookReducer = (state: IState = initialState, action: BookActionType) => {
+export const bookReducer = (state: IBookByISBNState = initialState, action: IBookByISBNAction) => {
   switch (action.type) {
-    case "SHOW_BOOKS":
-      return { ...state, books: action.payload };
+    case "SHOW_BOOK":
+      return { ...state, book: action.payload };
     default:
       return state;
   }

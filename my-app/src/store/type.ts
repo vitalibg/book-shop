@@ -1,11 +1,20 @@
 import { IBook } from "../util/schema/new";
+import { IBookByISBN } from "../util/schema/books";
 
-export interface BookActionType {
+export interface INewBooksState {
+  books: IBook[];
+}
+
+export interface INewBooksAction {
   type: string;
   payload: IBook[];
 }
 
-export interface BookListActionType {
+export interface IBookByISBNState {
+  book: IBookByISBN;
+}
+
+export interface IBookByISBNAction {
   type: string;
-  payload: string;
+  payload: IBookByISBN;
 }

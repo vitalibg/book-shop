@@ -10,8 +10,8 @@ import NewReleasesPageComponent from "./component/page/new-releases/new-releases
 import SignInPageComponent from "./component/page/sign-in/sign-in-page.component";
 import ResetPasswordPageComponent from "./component/page/reset-password/reset-password-page.component";
 import SignUpPageComponent from "./component/page/sign-up/sign-up-page.component";
-import CartPageComponent from "./component/page/cart/cartPageComponent";
-import BookmarkPageComponent from "./component/page/bookmark/bookmarkPageComponent";
+import CartPageComponent from "./component/page/cart/cart-page-component";
+import BookmarkPageComponent from "./component/page/bookmark/bookmark-page-component";
 
 function App() {
   return (
