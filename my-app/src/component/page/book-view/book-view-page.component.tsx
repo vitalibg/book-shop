@@ -10,18 +10,23 @@ import SubscribeComponent from "../../subscribe/subscribe.component";
 import PaginationSingleBookComponent from "../../pagination/single-book/pagination-single-book.component";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { fetchBook } from "../../../store/action";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import IconComponent from "../../common/icon.component";
 import LabelComponent from "../../common/label.component";
 import TabComponent from "./tab/tab.component";
 import RatingComponent from "./rating/rating.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const BookViewPageComponent = () => {
+  const history = useNavigate();
   const dispatch = useAppDispatch();
   const urlParam = useParams();
   const book = useAppSelector((state) => state.book?.book);
+
+  const handleClickGoBack = () => {
+    history(-1);
+  };
 
   useEffect(() => {
     dispatch(fetchBook(urlParam.bookId!));
@@ -31,6 +36,9 @@ const BookViewPageComponent = () => {
     <>
       <HeaderComponent />
       <div className={style.container}>
+        <div onClick={handleClickGoBack} className={style.navBack}>
+          <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
+        </div>
         <div className={style.title}>
           <TextComponent text={book?.title} />
         </div>
