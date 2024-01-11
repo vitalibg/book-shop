@@ -50,7 +50,7 @@
 
 .details {
     margin-top: 30px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .control {
@@ -66,6 +66,13 @@
         background: rgb(0, 2, 3);
         background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
         font-weight: bold;
+
+    }
+
+    :hover{
+        background: rgb(0, 2, 3);
+        background: linear-gradient(333deg, rgb(45, 129, 88) 10%, rgb(155, 182, 166) 50%, rgb(45, 129, 88) 90%);
+        color: white;
     }
 
     & span {

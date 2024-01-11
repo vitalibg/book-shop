@@ -3,20 +3,18 @@ import "react-tabs/style/react-tabs.css";
 import React from "react";
 import ParagraphComponent from "../../../common/paragraph.component";
 import TextComponent from "../../../common/text.component";
-
+import style from "./tab.module.css";
 
 interface TabComponentProps {
   description: string;
   authors: string;
-  reviews: string;
 }
 
-const TabComponent = ({ description, authors, reviews }: TabComponentProps) => (
-  <Tabs style={{marginBottom: "50px", height: "50px"}}>
+const TabComponent = ({ description, authors }: TabComponentProps) => (
+  <Tabs className={style.container}>
     <TabList>
       <Tab>Description</Tab>
       <Tab>Authors</Tab>
-      <Tab>Reviews</Tab>
     </TabList>
 
     <TabPanel>
@@ -24,9 +22,6 @@ const TabComponent = ({ description, authors, reviews }: TabComponentProps) => (
     </TabPanel>
     <TabPanel>
       <TextComponent text={authors} />
-    </TabPanel>
-    <TabPanel>
-      <TextComponent text={reviews} />
     </TabPanel>
   </Tabs>
 );

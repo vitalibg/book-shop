@@ -12,11 +12,9 @@ import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { fetchBook } from "../../../store/action";
 import { useParams } from "react-router-dom";
 import IconComponent from "../../common/icon.component";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import LabelComponent from "../../common/label.component";
 import TabComponent from "./tab/tab.component";
-
+import RatingComponent from "./rating/rating.component";
 
 const BookViewPageComponent = () => {
   const dispatch = useAppDispatch();
@@ -45,11 +43,7 @@ const BookViewPageComponent = () => {
               <div className={bookViewStyle.priceRate}>
                 <TextComponent text={book?.price} />
                 <div className={bookViewStyle.rate}>
-                  <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-                  <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-                  <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-                  <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
-                  <IconComponent icon={<FontAwesomeIcon icon={faStar} />} />
+                  <RatingComponent defaultRating={Number.parseInt(book?.rating)} />
                 </div>
               </div>
 
@@ -80,7 +74,7 @@ const BookViewPageComponent = () => {
           </div>
         </div>
 
-        <TabComponent description={book?.desc} authors={book?.authors} reviews={book?.rating} />
+        <TabComponent description={book?.desc} authors={book?.authors} />
 
         <SubscribeComponent />
         <PaginationSingleBookComponent />
