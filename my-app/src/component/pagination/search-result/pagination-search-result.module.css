@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 7px 3px;
+    font-size: 18px;
+
+    & span {
+        margin: 0 5px;
+    }
+}
+
+.paginationContainer {
+    display: flex;
+    list-style: none;
+    width: 7%;
+    justify-content: space-between;
+    padding-left: 0;
+
+    :hover {
+        color: white;
+        background-color: #2e8054;
+    }
+}
+
+.paginationItem {
+    cursor: pointer;
+    background-color: #000000;
+    padding: 7px;
+    font-size: 14px;
+    color: white;
+}
+
+.active {
+    color: white;
+    background-color: #31745d;
+}
+
+.bookContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    & a {
+        color: black;
+    }
+}
+
+.lock {
+    pointer-events: none;
+    padding: 5px 3px;
+    font-size: 18px;
+
+    & span {
+        margin: 0 5px;
+    }
+}

@@ -1,45 +1,50 @@
-import React, { useState } from "react";
-import style from "../new-releases/pagination.module.css";
+import React, { useEffect, useState } from "react";
+import style from "./pagination-search-result.module.css";
 import { Link } from "react-router-dom";
 import BookComponent from "../../book/book.component";
 import IconComponent from "../../common/icon.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
+import apiSearchBooksByPage from "../../../api/search-book-by-page";
 
-const BOOK_COUNT_PER_PAGE = 8;
+const BOOK_COUNT_PER_PAGE = 10;
 const PaginationSearchResultComponent = () => {
-  let bookList;
-  try {
-    bookList = JSON.parse(localStorage.getItem("searchResult")!);
-  } catch (err) {
-    console.error(err);
-  }
+  let bookList = JSON.parse(localStorage.getItem("searchResult")!);
+  let pageQuantity = JSON.parse(localStorage.getItem("pageQuantity")!);
+  let search = localStorage.getItem("searchValue")!;
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = BOOK_COUNT_PER_PAGE;
+  let [currentPage, setCurrentPage] = useState(1);
 
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
+  let recordsPerPage = BOOK_COUNT_PER_PAGE;
+  let lastIndex = currentPage * recordsPerPage;
+  let firstIndex = lastIndex - recordsPerPage;
+  let records = bookList?.slice(firstIndex, lastIndex);
 
-  const records = bookList?.slice(firstIndex, lastIndex);
+  let nPage = Math.ceil(Number.parseInt(pageQuantity) / recordsPerPage);
+  let numbers = [...Array(nPage + 1).keys()].slice(1);
 
-  const nPage = Math.ceil(bookList.length / recordsPerPage);
-  const numbers = [...Array(nPage + 1).keys()].slice(1);
+  useEffect(() => {}, [currentPage]);
 
-  const prePage = () => {
+  const prePage = async () => {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
+      localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+      console.log("result", localStorage.getItem("searchResult"));
     }
   };
 
-  const changePage = (page: number) => {
+  const changePage = async (page: number) => {
     setCurrentPage(page);
+    localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+    console.log("result", localStorage.getItem("searchResult"));
   };
 
-  const nextPage = () => {
+  const nextPage = async () => {
     if (currentPage !== nPage) {
       setCurrentPage(currentPage + 1);
+      localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+      console.log("result", localStorage.getItem("searchResult"));
     }
   };
 
