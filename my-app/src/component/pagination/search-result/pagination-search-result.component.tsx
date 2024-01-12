@@ -19,19 +19,26 @@ const PaginationSearchResultComponent = () => {
   let search = localStorage.getItem("searchValue")!;
 
   let [currentPage, setCurrentPage] = useState(1);
-
   let recordsPerPage = BOOK_COUNT_PER_PAGE;
-  let lastIndex = currentPage * recordsPerPage;
-  let firstIndex = lastIndex - recordsPerPage;
-  let records = searchResult?.slice(firstIndex, lastIndex);
+
+  let lastIndex
+  let firstIndex
+  // let records = searchResult?.slice(firstIndex, lastIndex);
 
   let nPage = Math.ceil(Number.parseInt(bookQuantity) / recordsPerPage);
   let numbers = [...Array(nPage + 1).keys()].slice(1);
 
   useEffect(() => {
+
+     lastIndex = currentPage * recordsPerPage;
+     firstIndex = lastIndex - recordsPerPage;
+
     const searchResult = JSON.parse(localStorage.getItem("searchResult")!);
+
+
+
     if (searchResult) {
-      console.log("searchResult",searchResult);
+      console.log("searchResult", searchResult);
       dispatch(showBooks(searchResult));
     }
   }, [currentPage]);
@@ -40,28 +47,25 @@ const PaginationSearchResultComponent = () => {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
       localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
-      console.log("result", localStorage.getItem("searchResult"));
     }
   };
 
   const changePage = async (page: number) => {
     setCurrentPage(page);
     localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
-    console.log("result", localStorage.getItem("searchResult"));
   };
 
   const nextPage = async () => {
     if (currentPage !== nPage) {
       setCurrentPage(currentPage + 1);
       localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
-      console.log("result", localStorage.getItem("searchResult"));
     }
   };
 
   return (
     <>
       <div className={style.bookContainer}>
-        {records.map(($book: any, i: any) => (
+        {searchResult?.slice(firstIndex, lastIndex).map(($book: any, i: any) => (
           <Link key={i} to={`/books/${$book.isbn13}`}>
             <BookComponent book={$book} />
           </Link>

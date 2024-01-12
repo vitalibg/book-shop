@@ -22,7 +22,8 @@
 .paginationContainer {
     display: flex;
     list-style: none;
-    width: 7%;
+    flex-wrap: wrap;
+    /*width: 7%;*/
     justify-content: space-between;
     padding-left: 0;
 
