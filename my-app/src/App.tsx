@@ -1,7 +1,7 @@
 import React from "react";
 import "./style/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BookSearchPageComponent from "./component/page/book-search/book-search-page.component";
+import SearchResultPageComponent from "./component/page/book-search/book-search-page.component";
 import BookViewPageComponent from "./component/page/book-view/book-view-page.component";
 import SuccessSignInTemplateComponent from "./component/template/success-sign-in-template.component";
 import SuccessSignUpTemplateComponent from "./component/template/success-sign-up-template.component";
@@ -30,7 +30,7 @@ function App() {
 
           <Route path={"/cart"} element={<CartPageComponent />} />
           <Route path={"/bookmarks"} element={<BookmarkPageComponent />} />
-          <Route path={"/book-search/:bookId"} element={<BookSearchPageComponent />} />
+          <Route path={`/search/:${localStorage.getItem("searchValue")}`} element={<SearchResultPageComponent />} />
           <Route path={"/books/:bookId"} element={<BookViewPageComponent />} />
         </Routes>
       </BrowserRouter>

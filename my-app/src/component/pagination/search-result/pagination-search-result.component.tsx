@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import style from "./pagination.module.css";
+import style from "../new-releases/pagination.module.css";
 import { Link } from "react-router-dom";
 import BookComponent from "../../book/book.component";
-import { useAppSelector } from "../../../store/hooks";
 import IconComponent from "../../common/icon.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
 
 const BOOK_COUNT_PER_PAGE = 8;
+const PaginationSearchResultComponent = () => {
+  let bookList;
+  try {
+    bookList = JSON.parse(localStorage.getItem("searchResult")!);
+  } catch (err) {
+    console.error(err);
+  }
 
-const PaginationComponent = () => {
-  const bookList = useAppSelector((state) => state.bookList?.books);
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = BOOK_COUNT_PER_PAGE;
 
@@ -42,7 +46,7 @@ const PaginationComponent = () => {
   return (
     <>
       <div className={style.bookContainer}>
-        {records.map(($book, i) => (
+        {records.map(($book: any, i: any) => (
           <Link key={i} to={`/books/${$book.isbn13}`}>
             <BookComponent book={$book} />
           </Link>
@@ -78,4 +82,4 @@ const PaginationComponent = () => {
   );
 };
 
-export default PaginationComponent;
+export default PaginationSearchResultComponent;
