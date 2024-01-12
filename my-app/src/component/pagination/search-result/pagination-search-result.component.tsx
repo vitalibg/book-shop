@@ -12,8 +12,10 @@ import { showBooks } from "../../../store/action";
 
 const BOOK_COUNT_PER_PAGE = 10;
 const PaginationSearchResultComponent = () => {
+  let lastIndex, firstIndex;
   const dispatch = useAppDispatch();
-  const searchResult = useAppSelector((state) => state.bookList?.books);
+
+  const bookList = useAppSelector((state) => state.bookList?.books);
 
   let bookQuantity = JSON.parse(localStorage.getItem("bookQuantity")!);
   let search = localStorage.getItem("searchValue")!;
@@ -21,24 +23,16 @@ const PaginationSearchResultComponent = () => {
   let [currentPage, setCurrentPage] = useState(1);
   let recordsPerPage = BOOK_COUNT_PER_PAGE;
 
-  let lastIndex
-  let firstIndex
-  // let records = searchResult?.slice(firstIndex, lastIndex);
-
   let nPage = Math.ceil(Number.parseInt(bookQuantity) / recordsPerPage);
   let numbers = [...Array(nPage + 1).keys()].slice(1);
 
   useEffect(() => {
-
-     lastIndex = currentPage * recordsPerPage;
-     firstIndex = lastIndex - recordsPerPage;
+    lastIndex = currentPage * recordsPerPage;
+    firstIndex = lastIndex - recordsPerPage;
 
     const searchResult = JSON.parse(localStorage.getItem("searchResult")!);
 
-
-
     if (searchResult) {
-      console.log("searchResult", searchResult);
       dispatch(showBooks(searchResult));
     }
   }, [currentPage]);
@@ -65,7 +59,7 @@ const PaginationSearchResultComponent = () => {
   return (
     <>
       <div className={style.bookContainer}>
-        {searchResult?.slice(firstIndex, lastIndex).map(($book: any, i: any) => (
+        {bookList?.slice(firstIndex, lastIndex).map(($book: any, i: any) => (
           <Link key={i} to={`/books/${$book.isbn13}`}>
             <BookComponent book={$book} />
           </Link>
