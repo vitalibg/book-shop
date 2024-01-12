@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import IconComponent from "../../common/icon.component";
 import apiSearchBook from "../../../api/search-book";
 import { useNavigate } from "react-router-dom";
-import apiPageQuantity from "../../../api/page-count";
+import apiBookQuantity from "../../../api/page-count";
 
 const SearchComponent = () => {
   const [search, setSearch] = useState("");
@@ -13,7 +13,7 @@ const SearchComponent = () => {
 
   const searchHandler = async (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
-      localStorage.setItem("pageQuantity", JSON.stringify(await apiPageQuantity(search)))
+      localStorage.setItem("bookQuantity", JSON.stringify(await apiBookQuantity(search)))
       localStorage.setItem("searchResult", JSON.stringify(await apiSearchBook(search)));
       localStorage.setItem("searchValue", search);
       navigate(`/search/${search}`);

@@ -7,11 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
 import apiSearchBooksByPage from "../../../api/search-book-by-page";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { showBooks } from "../../../store/action";
 
 const BOOK_COUNT_PER_PAGE = 10;
 const PaginationSearchResultComponent = () => {
-  let bookList = JSON.parse(localStorage.getItem("searchResult")!);
-  let pageQuantity = JSON.parse(localStorage.getItem("pageQuantity")!);
+  const dispatch = useAppDispatch();
+  const searchResult = useAppSelector((state) => state.bookList?.books);
+
+  let bookQuantity = JSON.parse(localStorage.getItem("bookQuantity")!);
   let search = localStorage.getItem("searchValue")!;
 
   let [currentPage, setCurrentPage] = useState(1);
@@ -19,12 +23,18 @@ const PaginationSearchResultComponent = () => {
   let recordsPerPage = BOOK_COUNT_PER_PAGE;
   let lastIndex = currentPage * recordsPerPage;
   let firstIndex = lastIndex - recordsPerPage;
-  let records = bookList?.slice(firstIndex, lastIndex);
+  let records = searchResult?.slice(firstIndex, lastIndex);
 
-  let nPage = Math.ceil(Number.parseInt(pageQuantity) / recordsPerPage);
+  let nPage = Math.ceil(Number.parseInt(bookQuantity) / recordsPerPage);
   let numbers = [...Array(nPage + 1).keys()].slice(1);
 
-  useEffect(() => {}, [currentPage]);
+  useEffect(() => {
+    const searchResult = JSON.parse(localStorage.getItem("searchResult")!);
+    if (searchResult) {
+      console.log("searchResult",searchResult);
+      dispatch(showBooks(searchResult));
+    }
+  }, [currentPage]);
 
   const prePage = async () => {
     if (currentPage !== 1) {
