@@ -50,28 +50,27 @@ const PaginationComponent = () => {
       </div>
 
       <div className={style.container}>
-        <nav>
-          <ul>
-            <li onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
-              <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
-              <TextComponent text={"Prev"} />
+        <div onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
+          <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
+          <TextComponent text={"Prev"} />
+        </div>
+
+        <ul className={style.paginationContainer}>
+          {numbers.map((page, key) => (
+            <li
+              key={key}
+              className={[style.paginationItem, currentPage === page ? style.active : ""].join(" ")}
+              onClick={() => changePage(page)}
+            >
+              {page}
             </li>
-            {numbers.map((n, i) => (
-              <li
-                key={i}
-                className={[style.paginationItem, currentPage === n ? style.active : ""].join(" ")}
-                onClick={() => changePage(n)}
-              >
-                {n}
-              </li>
-            ))}
-            <li></li>
-            <li onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
-              <TextComponent text={"Next"} />
-              <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
-            </li>
-          </ul>
-        </nav>
+          ))}
+        </ul>
+
+        <div onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
+          <TextComponent text={"Next"} />
+          <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
+        </div>
       </div>
     </>
   );

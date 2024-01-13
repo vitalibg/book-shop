@@ -9,8 +9,10 @@ import TextComponent from "../../common/text.component";
 import apiSearchBooksByPage from "../../../api/search-book-by-page";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { showBooks } from "../../../store/action";
+import { paginationRange } from "../../../util/pagination/pagination-range";
 
 const BOOK_COUNT_PER_PAGE = 10;
+const LIMIT_PAGINATION_OPTIONS = 7;
 const PaginationSearchResultComponent = () => {
   let lastIndex, firstIndex;
   const dispatch = useAppDispatch();
@@ -21,14 +23,12 @@ const PaginationSearchResultComponent = () => {
   let search = localStorage.getItem("searchValue")!;
 
   let [currentPage, setCurrentPage] = useState(1);
-  let recordsPerPage = BOOK_COUNT_PER_PAGE;
 
-  let nPage = Math.ceil(Number.parseInt(bookQuantity) / recordsPerPage);
-  let numbers = [...Array(nPage + 1).keys()].slice(1);
+  let nPage = Math.ceil(Number.parseInt(bookQuantity) / BOOK_COUNT_PER_PAGE);
 
   useEffect(() => {
-    lastIndex = currentPage * recordsPerPage;
-    firstIndex = lastIndex - recordsPerPage;
+    lastIndex = currentPage * BOOK_COUNT_PER_PAGE;
+    firstIndex = lastIndex - BOOK_COUNT_PER_PAGE;
 
     const searchResult = JSON.parse(localStorage.getItem("searchResult")!);
 
@@ -56,6 +56,8 @@ const PaginationSearchResultComponent = () => {
     }
   };
 
+  let array = paginationRange(nPage, currentPage, LIMIT_PAGINATION_OPTIONS, 1);
+
   return (
     <>
       <div className={style.bookContainer}>
@@ -73,15 +75,13 @@ const PaginationSearchResultComponent = () => {
         </div>
 
         <ul className={style.paginationContainer}>
-          {numbers.map((n, i) => (
-            <li key={i}>
-              <a
-                href={"#"}
-                className={[style.paginationItem, currentPage === n ? style.active : ""].join(" ")}
-                onClick={() => changePage(n)}
-              >
-                {n}
-              </a>
+          {array.map((page, key) => (
+            <li
+              key={key}
+              className={[style.paginationItem, currentPage === page ? style.active : ""].join(" ")}
+              onClick={() => changePage(page)}
+            >
+              {page}
             </li>
           ))}
         </ul>
