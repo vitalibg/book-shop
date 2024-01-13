@@ -45,6 +45,9 @@ const PaginationSearchResultComponent = () => {
   };
 
   const changePage = async (page: number) => {
+    if (String(page) === "...") {
+      return;
+    }
     setCurrentPage(page);
     localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
   };
