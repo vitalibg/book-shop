@@ -50,29 +50,28 @@ const PaginationComponent = () => {
       </div>
 
       <div className={style.container}>
-        <div onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
-          <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
-          <TextComponent text={"Prev"} />
-        </div>
-
-        <ul className={style.paginationContainer}>
-          {numbers.map((n, i) => (
-            <li key={i}>
-              <a
-                href={"#"}
+        <nav>
+          <ul>
+            <li onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
+              <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
+              <TextComponent text={"Prev"} />
+            </li>
+            {numbers.map((n, i) => (
+              <li
+                key={i}
                 className={[style.paginationItem, currentPage === n ? style.active : ""].join(" ")}
                 onClick={() => changePage(n)}
               >
                 {n}
-              </a>
+              </li>
+            ))}
+            <li></li>
+            <li onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
+              <TextComponent text={"Next"} />
+              <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
             </li>
-          ))}
-        </ul>
-
-        <div onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
-          <TextComponent text={"Next"} />
-          <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
-        </div>
+          </ul>
+        </nav>
       </div>
     </>
   );
