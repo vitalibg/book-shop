@@ -18,21 +18,21 @@ const FavoriteBookComponent = ({ book }: FavoriteBookComponentProps) => {
   return (
     <div className={favoriteBookStyle.container}>
       <BookPictureComponent image={book.image} />
-      <Link to={`/books/${book.isbn13}`}>
-        <div className={favoriteBookStyle.content}>
+      <div className={favoriteBookStyle.content}>
+        <Link to={`/books/${book.isbn13}`}>
           <div className={style.subTitle}>
             <TextComponent text={book.title} />
           </div>
-          <div className={favoriteBookStyle.authorAndYearContainer}>
-            <TextComponent text={"by " + book.authors + ", "} />
-            <TextComponent text={" " + book.year} />
-          </div>
-          <div className={favoriteBookStyle.priceRatingContainer}>
-            <TextComponent text={book.price} />
-            <RatingComponent defaultRating={Number.parseInt(book?.rating)} />
-          </div>
+        </Link>
+        <div className={favoriteBookStyle.authorAndYearContainer}>
+          <TextComponent text={"by " + book.authors + ", "} />
+          <TextComponent text={" " + book.year} />
         </div>
-      </Link>
+        <div className={favoriteBookStyle.priceRatingContainer}>
+          <TextComponent text={book.price} />
+          <RatingComponent defaultRating={Number.parseInt(book?.rating)} />
+        </div>
+      </div>
       <div className={favoriteBookStyle.heart}>
         <IconComponent icon={<FontAwesomeIcon icon={faHeart} />} />
       </div>
