@@ -8,35 +8,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
 import { fetchNewBooks } from "../../../store/action";
-
-const BOOK_COUNT_PER_PAGE = 4;
+import { BOOK_COUNT_ON_SINGLE_BOOK_PAGE } from "../../../util/pagination/pagination-range";
 
 const PaginationSingleBookComponent = () => {
   const dispatch = useAppDispatch();
+  const [page, setPage] = useState(1);
   const bookList = useAppSelector((state) => state.bookList?.books);
-  const [currentPage, setCurrentPage] = useState(3);
-  const recordsPerPage = BOOK_COUNT_PER_PAGE;
 
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
+  const lastViewedBook = page * BOOK_COUNT_ON_SINGLE_BOOK_PAGE;
+  const firstViewedBook = lastViewedBook - BOOK_COUNT_ON_SINGLE_BOOK_PAGE;
 
-  const records = bookList?.slice(firstIndex, lastIndex);
-
-  const nPage = Math.ceil(bookList.length / recordsPerPage);
+  const nPage = Math.ceil(bookList.length / BOOK_COUNT_ON_SINGLE_BOOK_PAGE);
 
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, []);
 
-  const prePage = () => {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
+  const prevPage = () => {
+    if (page !== 1) {
+      setPage(page - 1);
     }
   };
 
   const nextPage = () => {
-    if (currentPage !== nPage) {
-      setCurrentPage(currentPage + 1);
+    if (page !== nPage) {
+      setPage(page + 1);
     }
   };
 
@@ -48,7 +44,7 @@ const PaginationSingleBookComponent = () => {
         </div>
 
         <div className={paginationSinglePageStyle.control}>
-          <div onClick={prePage} className={paginationSinglePageStyle.arrow}>
+          <div onClick={prevPage} className={paginationSinglePageStyle.arrow}>
             <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
           </div>
 
@@ -59,9 +55,9 @@ const PaginationSingleBookComponent = () => {
       </div>
 
       <div className={paginationSinglePageStyle.bookContainer}>
-        {records.map(($book, i) => (
-          <Link key={i} to={`/books/${$book.isbn13}`}>
-            <BookComponent book={$book} />
+        {bookList?.slice(firstViewedBook, lastViewedBook).map((book, key) => (
+          <Link key={key} to={`/books/${book.isbn13}`}>
+            <BookComponent book={book} />
           </Link>
         ))}
       </div>

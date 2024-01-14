@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export const paginationRange = (totalPage: any, page: any, limit: any, siblings: any) => {
+export const paginationRange = (totalPage: any, page: any, siblings: any) => {
   let totalPageNoInArray = 7 + siblings;
   if (totalPageNoInArray >= totalPage) {
     return _.range(1, totalPage + 1);
@@ -24,3 +24,7 @@ export const paginationRange = (totalPage: any, page: any, limit: any, siblings:
     return [1, "...", ...middleRange, "...", totalPage];
   }
 };
+export const BOOK_COUNT_ON_SINGLE_BOOK_PAGE = 4;
+
+export const BOOK_COUNT_ON_NEW_RELEASES_PAGE = 8;
+export const BOOK_COUNT_ON_SEARCH_RESULT_PAGE = 10;

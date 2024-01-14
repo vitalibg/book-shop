@@ -13,9 +13,9 @@ const SearchComponent = () => {
 
   const searchHandler = async (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
-      localStorage.setItem("bookQuantity", JSON.stringify(await apiBookQuantity(search)))
-      localStorage.setItem("searchResult", JSON.stringify(await apiSearchBook(search)));
-      localStorage.setItem("searchValue", search);
+      localStorage.setItem("books-quantity", JSON.stringify(await apiBookQuantity(search)))
+      localStorage.setItem("search-result", JSON.stringify(await apiSearchBook(search)));
+      localStorage.setItem("search-book", search);
       navigate(`/search/${search}`);
     }
   };

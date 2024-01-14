@@ -6,43 +6,39 @@ import { useAppSelector } from "../../../store/hooks";
 import IconComponent from "../../common/icon.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { BOOK_COUNT_ON_NEW_RELEASES_PAGE } from "../../../util/pagination/pagination-range";
 import TextComponent from "../../common/text.component";
-
-const BOOK_COUNT_PER_PAGE = 8;
 
 const PaginationComponent = () => {
   const bookList = useAppSelector((state) => state.bookList?.books);
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = BOOK_COUNT_PER_PAGE;
+  const [page, setPage] = useState(1);
 
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
+  const lastIndex = page * BOOK_COUNT_ON_NEW_RELEASES_PAGE;
+  const firstIndex = lastIndex - BOOK_COUNT_ON_NEW_RELEASES_PAGE;
 
-  const records = bookList?.slice(firstIndex, lastIndex);
-
-  const nPage = Math.ceil(bookList.length / recordsPerPage);
+  const nPage = Math.ceil(bookList.length / BOOK_COUNT_ON_NEW_RELEASES_PAGE);
   const numbers = [...Array(nPage + 1).keys()].slice(1);
 
   const prePage = () => {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
+    if (page !== 1) {
+      setPage(page - 1);
     }
   };
 
   const changePage = (page: number) => {
-    setCurrentPage(page);
+    setPage(page);
   };
 
   const nextPage = () => {
-    if (currentPage !== nPage) {
-      setCurrentPage(currentPage + 1);
+    if (page !== nPage) {
+      setPage(page + 1);
     }
   };
 
   return (
     <>
       <div className={style.bookContainer}>
-        {records.map(($book, i) => (
+        {bookList?.slice(firstIndex, lastIndex).map(($book, i) => (
           <Link key={i} to={`/books/${$book.isbn13}`}>
             <BookComponent book={$book} />
           </Link>
@@ -50,24 +46,24 @@ const PaginationComponent = () => {
       </div>
 
       <div className={style.container}>
-        <div onClick={prePage} className={currentPage === 1 ? style.lock : style.arrow}>
+        <div onClick={prePage} className={page === 1 ? style.lock : style.arrow}>
           <IconComponent icon={<FontAwesomeIcon icon={faArrowLeft} />} />
           <TextComponent text={"Prev"} />
         </div>
 
         <ul className={style.paginationContainer}>
-          {numbers.map((page, key) => (
+          {numbers.map((pageNumber, key) => (
             <li
               key={key}
-              className={[style.paginationItem, currentPage === page ? style.active : ""].join(" ")}
-              onClick={() => changePage(page)}
+              className={[style.paginationItem, page === pageNumber ? style.active : ""].join(" ")}
+              onClick={() => changePage(pageNumber)}
             >
-              {page}
+              {pageNumber}
             </li>
           ))}
         </ul>
 
-        <div onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
+        <div onClick={nextPage} className={page === nPage ? style.lock : style.arrow}>
           <TextComponent text={"Next"} />
           <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
         </div>

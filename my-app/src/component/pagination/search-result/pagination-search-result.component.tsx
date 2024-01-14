@@ -9,28 +9,27 @@ import TextComponent from "../../common/text.component";
 import apiSearchBooksByPage from "../../../api/search-book-by-page";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { showBooks } from "../../../store/action";
-import { paginationRange } from "../../../util/pagination/pagination-range";
+import { BOOK_COUNT_ON_SEARCH_RESULT_PAGE, paginationRange } from "../../../util/pagination/pagination-range";
 
-const BOOK_COUNT_PER_PAGE = 10;
-const LIMIT_PAGINATION_OPTIONS = 7;
 const PaginationSearchResultComponent = () => {
-  let lastIndex, firstIndex;
+  let lastViewedBook, firstViewedBook;
+
   const dispatch = useAppDispatch();
+  let [currentPage, setCurrentPage] = useState(1);
 
   const bookList = useAppSelector((state) => state.bookList?.books);
 
-  let bookQuantity = JSON.parse(localStorage.getItem("bookQuantity")!);
-  let search = localStorage.getItem("searchValue")!;
+  let booksQuantity = JSON.parse(localStorage.getItem("books-quantity")!);
+  let searchBook = localStorage.getItem("search-book")!;
 
-  let [currentPage, setCurrentPage] = useState(1);
-
-  let nPage = Math.ceil(Number.parseInt(bookQuantity) / BOOK_COUNT_PER_PAGE);
+  let pagesQuantity = Math.ceil(Number.parseInt(booksQuantity) / BOOK_COUNT_ON_SEARCH_RESULT_PAGE);
+  let viewPaginationRange = paginationRange(pagesQuantity, currentPage, 2);
 
   useEffect(() => {
-    lastIndex = currentPage * BOOK_COUNT_PER_PAGE;
-    firstIndex = lastIndex - BOOK_COUNT_PER_PAGE;
+    lastViewedBook = currentPage * BOOK_COUNT_ON_SEARCH_RESULT_PAGE;
+    firstViewedBook = lastViewedBook - BOOK_COUNT_ON_SEARCH_RESULT_PAGE;
 
-    const searchResult = JSON.parse(localStorage.getItem("searchResult")!);
+    const searchResult = JSON.parse(localStorage.getItem("search-result")!);
 
     if (searchResult) {
       dispatch(showBooks(searchResult));
@@ -40,7 +39,7 @@ const PaginationSearchResultComponent = () => {
   const prePage = async () => {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
-      localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+      localStorage.setItem("search-result", JSON.stringify(await apiSearchBooksByPage(searchBook, String(currentPage))));
     }
   };
 
@@ -49,22 +48,20 @@ const PaginationSearchResultComponent = () => {
       return;
     }
     setCurrentPage(page);
-    localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+    localStorage.setItem("search-result", JSON.stringify(await apiSearchBooksByPage(searchBook, String(currentPage))));
   };
 
   const nextPage = async () => {
-    if (currentPage !== nPage) {
+    if (currentPage !== pagesQuantity) {
       setCurrentPage(currentPage + 1);
-      localStorage.setItem("searchResult", JSON.stringify(await apiSearchBooksByPage(search, String(currentPage))));
+      localStorage.setItem("search-result", JSON.stringify(await apiSearchBooksByPage(searchBook, String(currentPage))));
     }
   };
-
-  let array = paginationRange(nPage, currentPage, LIMIT_PAGINATION_OPTIONS, 1);
 
   return (
     <>
       <div className={style.bookContainer}>
-        {bookList?.slice(firstIndex, lastIndex).map(($book: any, i: any) => (
+        {bookList?.slice(firstViewedBook, lastViewedBook).map(($book: any, i: any) => (
           <Link key={i} to={`/books/${$book.isbn13}`}>
             <BookComponent book={$book} />
           </Link>
@@ -78,18 +75,18 @@ const PaginationSearchResultComponent = () => {
         </div>
 
         <ul className={style.paginationContainer}>
-          {array.map((page, key) => (
+          {viewPaginationRange.map((pageNumber, key) => (
             <li
               key={key}
-              className={[style.paginationItem, currentPage === page ? style.active : ""].join(" ")}
-              onClick={() => changePage(page)}
+              className={[style.paginationItem, currentPage === pageNumber ? style.active : ""].join(" ")}
+              onClick={() => changePage(pageNumber)}
             >
-              {page}
+              {pageNumber}
             </li>
           ))}
         </ul>
 
-        <div onClick={nextPage} className={currentPage === nPage ? style.lock : style.arrow}>
+        <div onClick={nextPage} className={currentPage === pagesQuantity ? style.lock : style.arrow}>
           <TextComponent text={"Next"} />
           <IconComponent icon={<FontAwesomeIcon icon={faArrowRight} />} />
         </div>
