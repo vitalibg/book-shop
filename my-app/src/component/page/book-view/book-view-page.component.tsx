@@ -28,9 +28,20 @@ const BookViewPageComponent = () => {
     history(-1);
   };
 
+  const handleClickFavorite = () => {
+    let prevFavoriteList = JSON.parse(localStorage.getItem("favorite")!);
+    localStorage.removeItem("favorite");
+    prevFavoriteList.push(JSON.parse(localStorage.getItem("book-view")!));
+    localStorage.setItem("favorite", JSON.stringify(prevFavoriteList));
+  };
+
   useEffect(() => {
+    if (localStorage.getItem("favorite") === null) {
+      localStorage.setItem("favorite", "[]");
+    }
+    localStorage.setItem("book-view", JSON.stringify(book));
     dispatch(fetchBook(urlParam.bookId!));
-  }, []);
+  }, [book]);
 
   return (
     <>
@@ -45,7 +56,7 @@ const BookViewPageComponent = () => {
 
         <div className={bookViewStyle.bookInfo}>
           <div className={bookViewStyle.image}>
-            <div className={bookViewStyle.icon}>
+            <div onClick={handleClickFavorite} className={bookViewStyle.icon}>
               <IconComponent icon={<FontAwesomeIcon icon={faHeart} />} />
             </div>
             <ImageComponent image={book?.image} />
