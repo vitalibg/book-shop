@@ -22,7 +22,7 @@ const initialState: IBookByISBNState = {
 
 export const bookReducer = (state: IBookByISBNState = initialState, action: IBookByISBNAction) => {
   switch (action.type) {
-    case "SHOW_BOOK":
+    case "VIEW_BOOK":
       return { ...state, book: action.payload };
     default:
       return state;

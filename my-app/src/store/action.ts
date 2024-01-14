@@ -9,8 +9,8 @@ export const showBooks = (books: IBook[]) => ({
   payload: books
 });
 
-export const showBook = (book: IBookByISBN) => ({
-  type: "SHOW_BOOK",
+export const viewBook = (book: IBookByISBN) => ({
+  type: "VIEW_BOOK",
   payload: book
 });
 
@@ -19,5 +19,5 @@ export const fetchNewBooks = () => async (dispatch: AppDispatch) => {
 };
 
 export const fetchBook = (isbn: string) => async (dispatch: AppDispatch) => {
-  dispatch(showBook(await apiFetchBook(isbn)));
+  dispatch(viewBook(await apiFetchBook(isbn)));
 };

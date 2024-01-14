@@ -18,8 +18,6 @@ const PaginationSingleBookComponent = () => {
   const lastViewedBook = page * BOOK_COUNT_ON_SINGLE_BOOK_PAGE;
   const firstViewedBook = lastViewedBook - BOOK_COUNT_ON_SINGLE_BOOK_PAGE;
 
-  const nPage = Math.ceil(bookList.length / BOOK_COUNT_ON_SINGLE_BOOK_PAGE);
-
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, []);
@@ -31,7 +29,7 @@ const PaginationSingleBookComponent = () => {
   };
 
   const nextPage = () => {
-    if (page !== nPage) {
+    if (page !== Math.ceil(bookList.length / BOOK_COUNT_ON_SINGLE_BOOK_PAGE)) {
       setPage(page + 1);
     }
   };
