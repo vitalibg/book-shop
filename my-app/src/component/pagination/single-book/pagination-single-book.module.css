@@ -4,13 +4,6 @@
     align-items: center;
 }
 
-.subTitle {
-    margin: 20px 0 20px;
-    font-size: 22px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
 .control {
     width: 5%;
     display: flex;

@@ -11,7 +11,7 @@ import SignInPageComponent from "./component/page/sign-in/sign-in-page.component
 import ResetPasswordPageComponent from "./component/page/reset-password/reset-password-page.component";
 import SignUpPageComponent from "./component/page/sign-up/sign-up-page.component";
 import CartPageComponent from "./component/page/cart/cart-page-component";
-import BookmarkPageComponent from "./component/page/bookmark/bookmark-page-component";
+import FavoritePageComponent from "./component/page/favorite/favorite-page.component";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
           <Route path={"/sign-up/success"} element={<SuccessSignUpTemplateComponent />} />
 
           <Route path={"/cart"} element={<CartPageComponent />} />
-          <Route path={"/bookmarks"} element={<BookmarkPageComponent />} />
+          <Route path={"/bookmarks"} element={<FavoritePageComponent />} />
           <Route path={`/search/:${localStorage.getItem("searchValue")}`} element={<SearchResultPageComponent />} />
           <Route path={"/books/:bookId"} element={<BookViewPageComponent />} />
         </Routes>

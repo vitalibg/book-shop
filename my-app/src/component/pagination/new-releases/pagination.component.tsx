@@ -38,9 +38,9 @@ const PaginationComponent = () => {
   return (
     <>
       <div className={style.bookContainer}>
-        {bookList?.slice(firstIndex, lastIndex).map(($book, i) => (
-          <Link key={i} to={`/books/${$book.isbn13}`}>
-            <BookComponent book={$book} />
+        {bookList?.slice(firstIndex, lastIndex).map((book, key) => (
+          <Link key={key} to={`/books/${book.isbn13}`}>
+            <BookComponent book={book} />
           </Link>
         ))}
       </div>

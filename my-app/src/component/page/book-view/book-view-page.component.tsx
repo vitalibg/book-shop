@@ -71,6 +71,7 @@ const BookViewPageComponent = () => {
                 </div>
               </div>
 
+              {/*TODO: Create components*/}
               <div className={bookViewStyle.authors}>
                 <LabelComponent text={"Authors"} />
                 <TextComponent text={book?.authors} />
@@ -102,7 +103,7 @@ const BookViewPageComponent = () => {
 
         <SubscribeComponent />
 
-        <PaginationSingleBookComponent />
+        <PaginationSingleBookComponent booksQuantity={4} title={"Similar books"}/>
       </div>
       <FooterComponent />
     </>
