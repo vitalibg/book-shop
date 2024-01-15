@@ -10,7 +10,7 @@ import NewReleasesPageComponent from "./component/page/new-releases/new-releases
 import SignInPageComponent from "./component/page/sign-in/sign-in-page.component";
 import ResetPasswordPageComponent from "./component/page/reset-password/reset-password-page.component";
 import SignUpPageComponent from "./component/page/sign-up/sign-up-page.component";
-import CartPageComponent from "./component/page/cart/cart-page-component";
+import CartPageComponent from "./component/page/cart/cart-page.component";
 import FavoritePageComponent from "./component/page/favorite/favorite-page.component";
 
 function App() {

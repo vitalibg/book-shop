@@ -35,9 +35,19 @@ const BookViewPageComponent = () => {
     localStorage.setItem("favorite", JSON.stringify(prevFavoriteList));
   };
 
+  const handleClickAddToCart = () => {
+    let prevCartList = JSON.parse(localStorage.getItem("cart")!);
+    localStorage.removeItem("cart");
+    prevCartList.push(JSON.parse(localStorage.getItem("book-view")!));
+    localStorage.setItem("cart", JSON.stringify(prevCartList));
+  };
+
   useEffect(() => {
     if (localStorage.getItem("favorite") === null) {
       localStorage.setItem("favorite", "[]");
+    }
+    if (localStorage.getItem("cart") === null) {
+      localStorage.setItem("cart", "[]");
     }
     localStorage.setItem("book-view", JSON.stringify(book));
     dispatch(fetchBook(urlParam.bookId!));
@@ -92,7 +102,7 @@ const BookViewPageComponent = () => {
                 <IconComponent icon={""} />
               </div>
 
-              <div className={bookViewStyle.control}>
+              <div onClick={handleClickAddToCart} className={bookViewStyle.control}>
                 <ButtonComponent content={"Add to cart"} />
               </div>
             </div>
@@ -103,7 +113,7 @@ const BookViewPageComponent = () => {
 
         <SubscribeComponent />
 
-        <PaginationSingleBookComponent booksQuantity={4} title={"Similar books"}/>
+        <PaginationSingleBookComponent booksQuantity={4} title={"Similar books"} />
       </div>
       <FooterComponent />
     </>
