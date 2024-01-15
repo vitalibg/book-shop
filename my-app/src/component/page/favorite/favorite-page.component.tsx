@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../../style/all.module.css";
 import TextComponent from "../../common/text.component";
 import HeaderComponent from "../../header/header.component";
@@ -14,7 +14,7 @@ import favoritePageStyle from "./favorite.module.css";
 
 const FavoritePageComponent = () => {
   const history = useNavigate();
-  const bookList = JSON.parse(localStorage.getItem("favorite")!);
+  const [favoriteBook, setFavoriteBook] = useState(JSON.parse(localStorage.getItem("favorite")!));
 
   const handleClickGoBack = () => {
     history(-1);
@@ -24,7 +24,9 @@ const FavoritePageComponent = () => {
     if (localStorage.getItem("favorite") === null) {
       localStorage.setItem("favorite", "[]");
     }
-  }, []);
+    // TODO: WARNING: Need do another solution
+    setFavoriteBook(JSON.parse(localStorage.getItem("favorite")!))
+  }, [favoriteBook]);
 
   return (
     <>
@@ -37,7 +39,7 @@ const FavoritePageComponent = () => {
           <TextComponent text={"Favorites"} />
         </div>
         <div className={favoritePageStyle.content}>
-          {bookList?.map((book: IBookByISBN, key: number) => <FavoriteBookComponent key={key} book={book} />)}
+          {favoriteBook?.map((book: IBookByISBN, key: number) => <FavoriteBookComponent key={key} book={book} />)}
         </div>
         <PaginationSingleBookComponent title={"Popular books"} booksQuantity={4} />
       </div>

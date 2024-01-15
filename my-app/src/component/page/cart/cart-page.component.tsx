@@ -22,7 +22,7 @@ const CartPageComponent = () => {
     if (localStorage.getItem("cart") === null) {
       localStorage.setItem("cart", "[]");
     }
-    // TODO: Do another solution
+    // TODO: WARNING: Need do another solution
     setCart(JSON.parse(localStorage.getItem("cart")!));
   }, [cart]);
 

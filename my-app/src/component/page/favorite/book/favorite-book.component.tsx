@@ -15,6 +15,13 @@ interface FavoriteBookComponentProps {
 }
 
 const FavoriteBookComponent = ({ book }: FavoriteBookComponentProps) => {
+  const clickHeartImageHandler = () => {
+    let favorite = JSON.parse(localStorage.getItem("favorite")!);
+    localStorage.removeItem("favorite");
+    let updFavorite = favorite.filter(($book: IBookByISBN) => $book.isbn13 !== book.isbn13);
+    localStorage.setItem("favorite", JSON.stringify(updFavorite));
+  };
+
   return (
     <div className={favoriteBookStyle.container}>
       <BookPictureComponent image={book.image} />
@@ -33,7 +40,7 @@ const FavoriteBookComponent = ({ book }: FavoriteBookComponentProps) => {
           <RatingComponent defaultRating={Number.parseInt(book?.rating)} />
         </div>
       </div>
-      <div className={favoriteBookStyle.heart}>
+      <div onClick={clickHeartImageHandler} className={favoriteBookStyle.heart}>
         <IconComponent icon={<FontAwesomeIcon icon={faHeart} />} />
       </div>
     </div>
