@@ -1,0 +1,55 @@
+.totalPriceContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    width: 19%;
+
+    & button {
+        padding: 15px 0;
+        background: rgb(0, 2, 3);
+        background: linear-gradient(333deg, rgb(44, 136, 104) 10%, rgb(196, 228, 245) 50%, rgb(44, 136, 104) 90%);
+        border: 0;
+        color: white;
+        text-transform: uppercase;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+.sum, .vat, .total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sum, .vat {
+    margin-bottom: 20px;
+
+    & label {
+        color: #807d7d;
+    }
+
+    & span {
+        color: black;
+    }
+
+    & label, & span {
+        font-size: 18px;
+    }
+}
+
+.vat {
+    text-transform: uppercase;
+}
+
+.total {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}

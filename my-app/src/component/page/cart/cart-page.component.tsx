@@ -7,9 +7,10 @@ import IconComponent from "../../common/icon.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import favoritePageStyle from "../favorite/favorite.module.css";
+import cartPageStyle from "./cart.module.css";
 import { IBookByISBN } from "../../../util/schema/books";
 import CartBookComponent from "./book/cart-book.component";
+import TotalPriceComponent from "./total-price/total-price-component";
 
 const CartPageComponent = () => {
   const history = useNavigate();
@@ -36,9 +37,10 @@ const CartPageComponent = () => {
         <div className={style.title}>
           <TextComponent text={"Cart"} />
         </div>
-        <div className={favoritePageStyle.content}>
+        <div className={cartPageStyle.content}>
           {cart?.map((book: IBookByISBN, key: number) => <CartBookComponent key={key} book={book} />)}
         </div>
+        <TotalPriceComponent cart={cart} />
       </div>
       <FooterComponent />
     </>
