@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import TextComponent from "../../common/text.component";
 import { fetchNewBooks } from "../../../store/action";
-import { BOOK_COUNT_ON_SINGLE_BOOK_PAGE } from "../../../util/pagination/pagination-range";
 import style from "../../../style/all.module.css";
 
 interface PaginationSingleBookComponentProps {

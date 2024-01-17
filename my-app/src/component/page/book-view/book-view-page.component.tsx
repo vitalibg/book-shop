@@ -24,21 +24,20 @@ const BookViewPageComponent = () => {
   const urlParam = useParams();
   const book = useAppSelector((state) => state.book?.book);
 
+
   const handleClickGoBack = () => {
     history(-1);
   };
 
   const handleClickFavorite = () => {
     let prevFavoriteList = JSON.parse(localStorage.getItem("favorite")!);
-    localStorage.removeItem("favorite");
     prevFavoriteList.push(JSON.parse(localStorage.getItem("book-view")!));
     localStorage.setItem("favorite", JSON.stringify(prevFavoriteList));
   };
 
   const handleClickAddToCart = () => {
     let prevCartList = JSON.parse(localStorage.getItem("cart")!);
-    localStorage.removeItem("cart");
-    prevCartList.push(JSON.parse(localStorage.getItem("book-view")!));
+    prevCartList.push({ book: JSON.parse(localStorage.getItem("book-view")!), count: 1 });
     localStorage.setItem("cart", JSON.stringify(prevCartList));
   };
 

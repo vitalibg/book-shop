@@ -86,7 +86,12 @@
         background: rgb(0, 2, 3);
         background: linear-gradient(333deg, rgb(93, 180, 134) 10%, rgb(224, 255, 237) 50%, rgb(93, 180, 134) 90%);
         font-weight: bold;
-
+        box-shadow: 0 9px #999;
+    }
+    & button:active{
+        background-color: #3e8e41;
+        box-shadow: 0 1px #666;
+        transform: translateY(4px);
     }
 
     :hover {

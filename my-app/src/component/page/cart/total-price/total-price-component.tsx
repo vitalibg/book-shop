@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./total-rice.module.css";
 import LabelComponent from "../../../common/label.component";
 import TextComponent from "../../../common/text.component";
 import ButtonComponent from "../../../common/button.component";
 import { IBookByISBN } from "../../../../util/schema/books";
 
+export interface Book {
+  count: number;
+  book: IBookByISBN;
+}
+
 interface TotalPriceComponentProps {
-  cart: IBookByISBN[];
+  cart: Book[];
 }
 
 const TotalPriceComponent = ({ cart }: TotalPriceComponentProps) => {
-  const [sum, setSum] = useState(
-    cart
-      .map((book: IBookByISBN) => book.price.substring(1))
-      .reduce((a: any, b: any) => Number.parseFloat(a) + Number.parseFloat(b), 0)
-  );
+  const sum = cart
+    .map(
+      (value: { book: IBookByISBN; count: number }) => Number.parseFloat(value.book.price.substring(1)) * value.count
+    )
+    .reduce((a: number, b: number) => a + b, 0);
 
   return (
     <div className={style.totalPriceContainer}>
