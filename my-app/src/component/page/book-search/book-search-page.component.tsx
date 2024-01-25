@@ -11,7 +11,7 @@ const BookSearchPageComponent = () => {
       <HeaderComponent />
       <div className={style.container}>
         <div className={style.title}>
-          <TextComponent text={`\'${localStorage.getItem("searchValue")}\' search results`} />
+          <TextComponent text={`\'${localStorage.getItem("search-book")}\' search results`} />
         </div>
         <PaginationSearchResultComponent />
       </div>

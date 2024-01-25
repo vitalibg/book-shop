@@ -30,7 +30,7 @@ function App() {
 
           <Route path={"/cart"} element={<CartPageComponent />} />
           <Route path={"/bookmarks"} element={<FavoritePageComponent />} />
-          <Route path={`/search/:${localStorage.getItem("searchValue")}`} element={<SearchResultPageComponent />} />
+          <Route path={`/search/:${localStorage.getItem("search-book")}`} element={<SearchResultPageComponent />} />
           <Route path={"/books/:bookId"} element={<BookViewPageComponent />} />
         </Routes>
       </BrowserRouter>

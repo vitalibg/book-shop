@@ -24,33 +24,31 @@ const BookViewPageComponent = () => {
   const urlParam = useParams();
   const book = useAppSelector((state) => state.book?.book);
 
-
   const handleClickGoBack = () => {
     history(-1);
   };
 
   const handleClickFavorite = () => {
+    if (localStorage.getItem("favorite") === null) {
+      localStorage.setItem("favorite", "[]");
+    }
     let prevFavoriteList = JSON.parse(localStorage.getItem("favorite")!);
-    prevFavoriteList.push(JSON.parse(localStorage.getItem("book-view")!));
+    prevFavoriteList.push(book);
     localStorage.setItem("favorite", JSON.stringify(prevFavoriteList));
   };
 
   const handleClickAddToCart = () => {
+    if (localStorage.getItem("cart") === null) {
+      localStorage.setItem("cart", "[]");
+    }
     let prevCartList = JSON.parse(localStorage.getItem("cart")!);
-    prevCartList.push({ book: JSON.parse(localStorage.getItem("book-view")!), count: 1 });
+    prevCartList.push({ book, count: 1 });
     localStorage.setItem("cart", JSON.stringify(prevCartList));
   };
 
   useEffect(() => {
-    if (localStorage.getItem("favorite") === null) {
-      localStorage.setItem("favorite", "[]");
-    }
-    if (localStorage.getItem("cart") === null) {
-      localStorage.setItem("cart", "[]");
-    }
-    localStorage.setItem("book-view", JSON.stringify(book));
     dispatch(fetchBook(urlParam.bookId!));
-  }, [book]);
+  }, [urlParam.bookId]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "../../../style/all.module.css";
 import TextComponent from "../../common/text.component";
 import HeaderComponent from "../../header/header.component";
@@ -14,7 +14,8 @@ import TotalPriceComponent, { Book } from "./total-price/total-price-component";
 
 const CartPageComponent = () => {
   const history = useNavigate();
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")!));
+  const [cart, setCart] = useState(localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")!) : []);
+
   const handleClickGoBack = () => {
     history(-1);
   };
@@ -25,12 +26,6 @@ const CartPageComponent = () => {
     localStorage.setItem("cart", JSON.stringify(updCart));
     setCart((prev: any) => prev.filter((value: { book: IBookByISBN }) => value.book.isbn13 !== book.book.isbn13));
   };
-
-  useEffect(() => {
-    if (localStorage.getItem("cart") === null) {
-      localStorage.setItem("cart", "[]");
-    }
-  }, []);
 
   const changeBookCount = (bookId: string, bookNumber: number) => {
     let cart = JSON.parse(localStorage.getItem("cart")!);

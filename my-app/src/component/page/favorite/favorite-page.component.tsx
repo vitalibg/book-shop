@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "../../../style/all.module.css";
 import TextComponent from "../../common/text.component";
 import HeaderComponent from "../../header/header.component";
@@ -14,19 +14,13 @@ import favoritePageStyle from "./favorite.module.css";
 
 const FavoritePageComponent = () => {
   const history = useNavigate();
-  const [favoriteBook, setFavoriteBook] = useState(JSON.parse(localStorage.getItem("favorite")!));
+  const [favoriteBook, setFavoriteBook] = useState(
+    localStorage.getItem("favorite") ? JSON.parse(localStorage.getItem("favorite")!) : []
+  );
 
   const handleClickGoBack = () => {
     history(-1);
   };
-
-  useEffect(() => {
-    if (localStorage.getItem("favorite") === null) {
-      localStorage.setItem("favorite", "[]");
-    }
-    // TODO: WARNING: Need do another solution
-    setFavoriteBook(JSON.parse(localStorage.getItem("favorite")!))
-  }, [favoriteBook]);
 
   return (
     <>
