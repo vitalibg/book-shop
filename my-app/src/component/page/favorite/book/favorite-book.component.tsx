@@ -1,7 +1,7 @@
 import React from "react";
 import BookPictureComponent from "../../../book/picture/book-picture.component";
 import TextComponent from "../../../common/text.component";
-import { IBookByISBN } from "../../../../util/schema/books";
+import { IBookFull } from "../../../../util/schema/books";
 import RatingComponent from "../../book-view/rating/rating.component";
 import favoriteBookStyle from "./favorite-book.module.css";
 import style from "../../../../style/all.module.css";
@@ -11,14 +11,14 @@ import IconComponent from "../../../common/icon.component";
 import { Link } from "react-router-dom";
 
 interface FavoriteBookComponentProps {
-  book: IBookByISBN;
+  book: IBookFull;
 }
 
 const FavoriteBookComponent = ({ book }: FavoriteBookComponentProps) => {
   const clickHeartImageHandler = () => {
     let favorite = JSON.parse(localStorage.getItem("favorite")!);
     localStorage.removeItem("favorite");
-    let updFavorite = favorite.filter(($book: IBookByISBN) => $book.isbn13 !== book.isbn13);
+    let updFavorite = favorite.filter(($book: IBookFull) => $book.isbn13 !== book.isbn13);
     localStorage.setItem("favorite", JSON.stringify(updFavorite));
   };
 

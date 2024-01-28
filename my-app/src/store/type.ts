@@ -1,5 +1,5 @@
 import { IBook } from "../util/schema/new";
-import { IBookByISBN } from "../util/schema/books";
+import { IBookFull } from "../util/schema/books";
 
 export interface INewBooksState {
   books: IBook[];
@@ -11,10 +11,10 @@ export interface INewBooksAction {
 }
 
 export interface IBookByISBNState {
-  book: IBookByISBN;
+  book: IBookFull;
 }
 
 export interface IBookByISBNAction {
   type: string;
-  payload: IBookByISBN;
+  payload: IBookFull;
 }

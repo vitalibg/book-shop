@@ -1,7 +1,7 @@
 import { IBook } from "../util/schema/new";
 import { AppDispatch } from "./store";
 import apiFetchNewBooks from "../api/get-book-list";
-import { IBookByISBN } from "../util/schema/books";
+import { IBookFull } from "../util/schema/books";
 import apiFetchBook from "../api/get-book";
 
 export const showBooks = (books: IBook[]) => ({
@@ -9,7 +9,7 @@ export const showBooks = (books: IBook[]) => ({
   payload: books
 });
 
-export const viewBook = (book: IBookByISBN) => ({
+export const viewBook = (book: IBookFull) => ({
   type: "VIEW_BOOK",
   payload: book
 });

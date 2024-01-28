@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BookPictureComponent from "../../../book/picture/book-picture.component";
 import TextComponent from "../../../common/text.component";
-import { IBookByISBN } from "../../../../util/schema/books";
+import { IBookFull } from "../../../../util/schema/books";
 import cartBookStyle from "./cart-book.module.css";
 import style from "../../../../style/all.module.css";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import { faMinus, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface CartBookComponentProps {
-  book: IBookByISBN;
+  book: IBookFull;
   clickCrossImageHandler: () => void;
   changeBookCount: (bookId: string, bookCount: number) => void;
 }
@@ -38,13 +38,6 @@ const CartBookComponent = ({ book, clickCrossImageHandler, changeBookCount }: Ca
     console.log("book.isbn13", book.isbn13);
     console.log("number", number);
   }, [number]);
-
-  // const clickCrossImageHandler = () => {
-  //   let cart = JSON.parse(localStorage.getItem("cart")!);
-  //   localStorage.removeItem("cart");
-  //   let updCart = cart.filter(($book: IBookByISBN) => $book.isbn13 !== book.isbn13);
-  //   localStorage.setItem("cart", JSON.stringify(updCart));
-  // };
 
   return (
     <div className={cartBookStyle.container}>

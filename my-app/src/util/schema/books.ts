@@ -1,4 +1,4 @@
-export interface IBookByISBN {
+export interface IBookFull {
   error: string;
   title: string;
   subtitle: string;

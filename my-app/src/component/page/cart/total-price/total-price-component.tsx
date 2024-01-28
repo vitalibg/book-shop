@@ -3,21 +3,21 @@ import style from "./total-rice.module.css";
 import LabelComponent from "../../../common/label.component";
 import TextComponent from "../../../common/text.component";
 import ButtonComponent from "../../../common/button.component";
-import { IBookByISBN } from "../../../../util/schema/books";
+import { IBookFull } from "../../../../util/schema/books";
 
-export interface Book {
+export interface IBook {
   count: number;
-  book: IBookByISBN;
+  book: IBookFull;
 }
 
 interface TotalPriceComponentProps {
-  cart: Book[];
+  cart: IBook[];
 }
 
 const TotalPriceComponent = ({ cart }: TotalPriceComponentProps) => {
   const sum = cart
     .map(
-      (value: { book: IBookByISBN; count: number }) => Number.parseFloat(value.book.price.substring(1)) * value.count
+      (value: { book: IBookFull; count: number }) => Number.parseFloat(value.book.price.substring(1)) * value.count
     )
     .reduce((a: number, b: number) => a + b, 0);
 
@@ -26,7 +26,7 @@ const TotalPriceComponent = ({ cart }: TotalPriceComponentProps) => {
       <div className={style.wrap}>
         <div className={style.sum}>
           <LabelComponent text={"Sum total"} />
-          <TextComponent text={`$${sum}`} />
+          <TextComponent text={`$${sum.toFixed(2)}`} />
         </div>
         <div className={style.vat}>
           <LabelComponent text={"Vat"} />
